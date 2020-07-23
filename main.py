@@ -2,10 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from flask import Flask
-
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-
 
 @app.route('/get_stock/<ticker>', methods=['GET'])
 def getStock(ticker):
