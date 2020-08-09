@@ -17,7 +17,7 @@
 </nav>
 
 
-<div class="class1" style="background-color:#dad9ff;">
+<div class="class1" style="background-color:#ebf2ff;">
   <div style='margin-top:1%;'>
     <h4 style="display:inline; vertical-align: middle !important;">Interesting Stocks</h4>
   </div>
@@ -30,14 +30,15 @@
     <h4 style="display:inline; vertical-align: middle !important;">Current Holdings</h4>
   </div>
   <div style='margin-top:1%; margin-bottom:1%;'>
-    <button class="btn btn-light" (click)="getHoldingsList(); buttonClicked = true">
+    <button class="btn btn-light" style="background-color: transparent;"
+      (click)="getHoldingsList(); buttonClicked = true">
       ↺
     </button>
   </div>
   <div>
     <div *ngIf="buttonClicked">
       <div *ngFor="let i of ngForArr">
-        <div class="card" [ngClass]="{'card-color-green': results[i].positive === true }"
+        <div class="card" style="margin-bottom: 3%;" [ngClass]="{'card-color-green': results[i].positive === true }"
           [ngClass]="{'card-color-red': results[i].positive === false}">
           <div class="card-body" [ngClass]="{'card-color-green': results[i].change > 0}">
             <h5 style='float:left; display:inline-block; padding-top: 25px;'>{{results[i].name}}:
@@ -51,11 +52,11 @@
     </div>
   </div>
 </div>
-<div class="class3" style="background-color:#fff0d9; margin-left: 66.6%">
+<div class="class3" style="background-color:#ebf2ff; margin-left: 66.6%">
   <div style='margin-top:1%;'>
     <h4 style="display:inline; vertical-align: middle !important;">Upcoming Earnings</h4>
   </div>
-  <button class="btn btn-light" buttonClicked="true">
+  <button class="btn btn-light" style="background-color: transparent;" buttonClicked="true">
     ↺
   </button>
 </div>

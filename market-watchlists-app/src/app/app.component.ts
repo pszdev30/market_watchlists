@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   constructor(private flaskService: FlaskService) { }
 
   ngOnInit() {
-    this.getHoldingsList()
+    // this.getHoldingsList()
     // let mySub: Subscription;
     // mySub = interval(15000).subscribe((func => {
     //   this.ngForArr = []
@@ -60,6 +60,7 @@ export class AppComponent implements OnInit {
     let i = 0;
     for (var ticker of this.holdingsArr) {
       this.flaskService.getHoldingsList(ticker).subscribe((quote) => {
+        console.log(quote)
         let ticker: Ticker = new Ticker();
         ticker.name = quote['Global Quote']['01. symbol'];
         ticker.lastPrice = quote['Global Quote']['05. price'];
@@ -74,7 +75,6 @@ export class AppComponent implements OnInit {
         this.results.push(ticker)
       });
       this.ngForArr.push(i++)
-
     }
   }
 
