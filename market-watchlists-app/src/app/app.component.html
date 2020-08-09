@@ -1,20 +1,110 @@
-<!-- BOOTSTRAP CDN -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-styling">
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-styling navbar-fixed-top">
   <a class="navbar-brand">Stock Market Watchlists</a>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  </div>
+  <div class="navbar-nav">
+    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#addStockToHoldings">Add Stock
+      to Holdings</button>
   </div>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto"></ul>
   </div>
 
-
   <input class="form-control mr-sm-2" type="search" placeholder="Search for a stock!" aria-label="Search"
     (input)="setTicker($event.target.value)" style="width: 250px;">
-  <button name="search" class="btn btn-outline-success my-2 my-sm-0" type="button"
-    (click)="fetchStock(ticker)">Search</button>
+  <button name="search" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+</nav>
+
+
+<div class="class1" style="background-color:#dad9ff;">
+  <div style='margin-top:1%;'>
+    <h4 style="display:inline; vertical-align: middle !important;">Interesting Stocks</h4>
+  </div>
+  <button class="btn btn-light" (click)="getTicker(ticker); buttonClicked=true">
+    ↺
+  </button>
+</div>
+<div class="class2" style="background-color:#ebf2ff; margin-left: 33.3%; text-align: center;">
+  <div style='margin-top:1%;'>
+    <h4 style="display:inline; vertical-align: middle !important;">Current Holdings</h4>
+  </div>
+  <div style='margin-top:1%; margin-bottom:1%;'>
+    <button class="btn btn-light" (click)="getTicker(ticker); buttonClicked=true">
+      ↺
+    </button>
+  </div>
+  <div>
+    <div *ngIf="buttonClicked">
+      <div *ngFor="let i of ngForArr">
+        <div class="card" [ngClass]="{'card-color-green': results[i].positive === true }"
+          [ngClass]="{'card-color-red': results[i].positive === false}">
+          <div class="card-body" [ngClass]="{'card-color-green': results[i].change > 0}">
+            <h5 style='float:left; display:inline-block; padding-top: 25px;'>{{results[i].name}}:
+              {{results[i].lastPrice}}</h5>
+            <p style='float:right; display:inline-block; margin-right:2%'>{{results[i].change}}</p>
+            <p style='float:right; display:inline-block; margin-right:2%'>{{results[i].percentChange}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="class3" style="background-color:#fff0d9; margin-left: 66.6%">
+  <div style='margin-top:1%;'>
+    <h4 style="display:inline; vertical-align: middle !important;">Upcoming Earnings</h4>
+  </div>
+  <button class="btn btn-light" (click)="getTicker(ticker); buttonClicked=true">
+    ↺
+  </button>
+</div>
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="addStockToHoldings" data-backdrop="static" data-keyboard="false" tabindex="-1"
+  aria-labelledby="addStockToHoldingsLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add Stock to Holdings</h5>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Ticker:</label>
+            <input type="text" class="form-control" id="ticker" (input)="setTicker($event.target.value)">
+          </div>
+          <label style="margin-top: 5px; margin-right: 15px;">Stock or Options?</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="stock" id="stock" value="stock" required
+              [checked]="type=='stock'" (click)="setType($event.target.value)">
+            <label class="form-check-label" for="inlineRadioStock">Stock</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="options" id="options" value="options" required
+              [checked]="type=='options'" (click)="setType($event.target.value)">
+            <label class="form-check-label" for="inlineRadioOptions">Options</label>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Number of Shares/Contracts:</label>
+            <input type="text" class="form-control" id="numOfSharesContracts"
+              (input)="setNumOfSharesContracts($event.target.value)">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal"
+          (click)="resetAddToHoldingsModal()">Close</button>
+        <button type="button" class="btn btn-primary" (click)="addToHoldingsArr(ticker); resetAddToHoldingsModal()"
+          data-dismiss="modal">Add to
+          Holdings
+
+          List</button>
+      </div>
+    </div>
+  </div>
+</div>

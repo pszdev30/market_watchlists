@@ -1,0 +1,26 @@
+// body {
+//     height: 95%;
+// }
+
+.class1,
+.class2,
+.class3 {
+  width: 33.33%;
+  height: 100%;
+  position: absolute;
+  display: inline-block;
+  border: solid black 2px;
+}
+
+p {
+  padding-top: 25px;
+  text-align: center;
+}
+
+.card-color-green {
+    background-color: #43de14;
+}
+
+.card-color-red {
+    background-color: #ff6961;
+}
