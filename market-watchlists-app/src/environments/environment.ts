@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  baseUrl: 'http://127.0.0.1:5000/',
+  // baseUrl: 'http://127.0.0.1:5000/',
+  baseUrl: 'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=',
+  apiKey: 'FW50D45U6ICU4CHA',
   production: false
 };
 
