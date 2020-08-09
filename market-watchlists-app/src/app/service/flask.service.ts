@@ -14,7 +14,7 @@ export class FlaskService {
   //   return this.http.get(environment.baseUrl + this.fetchStockUrl + ticker).toPromise();
   // }
 
-  getTicker(ticker: string) {
+  getHoldingsList(ticker: any) {
     return this.http.get(environment.baseUrl + ticker + '&apikey=' + environment.apiKey)
   }
 

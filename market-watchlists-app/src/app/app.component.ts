@@ -1,9 +1,6 @@
 import { Ticker } from './objects/ticker';
-import { Subscription, interval } from 'rxjs';
 import { FlaskService } from './service/flask.service';
 import { Component, OnInit } from '@angular/core';
-import { NgForOf } from '@angular/common';
-import { tick } from '@angular/core/testing';
 
 
 @Component({
@@ -31,6 +28,7 @@ export class AppComponent implements OnInit {
   constructor(private flaskService: FlaskService) { }
 
   ngOnInit() {
+    this.getHoldingsList()
     // let mySub: Subscription;
     // mySub = interval(15000).subscribe((func => {
     //   this.ngForArr = []
@@ -57,27 +55,26 @@ export class AppComponent implements OnInit {
     this.holdingsArr.push(ticker)
   }
 
-  getTicker(ticker: string) {
+  getHoldingsList() {
     this.reset();
+    let i = 0;
     for (var ticker of this.holdingsArr) {
-      this.flaskService.getTicker(ticker).subscribe((quote) => {
+      this.flaskService.getHoldingsList(ticker).subscribe((quote) => {
         let ticker: Ticker = new Ticker();
         ticker.name = quote['Global Quote']['01. symbol'];
         ticker.lastPrice = quote['Global Quote']['05. price'];
         ticker.change = quote['Global Quote']['09. change']
         ticker.numChange = Number(quote['Global Quote']['09. change'])
-        if (ticker.numChange > 0)
-          ticker.positive = true
-        else
-          ticker.positive = false;
-        ticker.percentChange = quote['Global Quote']['10. change percent']
-        this.results.push(ticker)
-        if (this.results.length >= 2) {
-          for (let i = 0; i < this.results.length; i++)
-            this.ngForArr.push(i)
-        }
 
-      })
+        if (ticker.numChange > 0) ticker.positive = true
+        else ticker.positive = false;
+
+        ticker.percentChange = quote['Global Quote']['10. change percent']
+
+        this.results.push(ticker)
+      });
+      this.ngForArr.push(i++)
+
     }
   }
 

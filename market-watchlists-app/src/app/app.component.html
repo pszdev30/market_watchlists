@@ -21,7 +21,7 @@
   <div style='margin-top:1%;'>
     <h4 style="display:inline; vertical-align: middle !important;">Interesting Stocks</h4>
   </div>
-  <button class="btn btn-light" (click)="getTicker(ticker); buttonClicked=true">
+  <button class="btn btn-light" buttonClicked="true">
     ↺
   </button>
 </div>
@@ -30,7 +30,7 @@
     <h4 style="display:inline; vertical-align: middle !important;">Current Holdings</h4>
   </div>
   <div style='margin-top:1%; margin-bottom:1%;'>
-    <button class="btn btn-light" (click)="getTicker(ticker); buttonClicked=true">
+    <button class="btn btn-light" (click)="getHoldingsList(); buttonClicked = true">
       ↺
     </button>
   </div>
@@ -47,6 +47,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>
@@ -54,7 +55,7 @@
   <div style='margin-top:1%;'>
     <h4 style="display:inline; vertical-align: middle !important;">Upcoming Earnings</h4>
   </div>
-  <button class="btn btn-light" (click)="getTicker(ticker); buttonClicked=true">
+  <button class="btn btn-light" buttonClicked="true">
     ↺
   </button>
 </div>
