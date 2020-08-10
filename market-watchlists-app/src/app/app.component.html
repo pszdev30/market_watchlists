@@ -17,11 +17,11 @@
 </nav>
 
 
-<div class="class1" style="background-color:#ebf2ff;">
+<div class="class1" style="background-color:#ebf2ff; text-align: center;">
   <div style='margin-top:1%;'>
     <h4 style="display:inline; vertical-align: middle !important;">Interesting Stocks</h4>
   </div>
-  <button class="btn btn-light" buttonClicked="true">
+  <button class="btn btn-light" style="background-color: transparent;" buttonClicked="true">
     ↺
   </button>
 </div>
@@ -38,13 +38,20 @@
   <div>
     <div *ngIf="buttonClicked">
       <div *ngFor="let i of ngForArr">
-        <div class="card" style="margin-bottom: 3%;" [ngClass]="{'card-color-green': results[i].positive === true }"
+        <div class="card text-center" style="margin-bottom: 3%; height: 4.5rem;"
+          [ngClass]="{'card-color-green': results[i].positive === true }"
           [ngClass]="{'card-color-red': results[i].positive === false}">
           <div class="card-body" [ngClass]="{'card-color-green': results[i].change > 0}">
-            <h5 style='float:left; display:inline-block; padding-top: 25px;'>{{results[i].name}}:
-              {{results[i].lastPrice}}</h5>
-            <p style='float:right; display:inline-block; margin-right:2%'>{{results[i].change}}</p>
-            <p style='float:right; display:inline-block; margin-right:2%'>{{results[i].percentChange}}</p>
+            <!-- style="border-right: solid black 1px; border-left: solid black 1px; border-top: solid black 1px; border-bottom: none;" -->
+            <p style='float:left; padding-top: 1%; margin-right:2%; width: 20%; text-align: center; font-weight: bold;'>
+              {{results[i].name}}</p>
+            <p style='float:left; padding: 1%; margin-right:2%; width: 20%; text-align: center; vertical-align: middle;'>
+              ${{results[i].lastPrice}}</p>
+            <p style='float:left;  padding-top: 1%; margin-right:2%; width: 20%; text-align: center;'>
+              ${{results[i].change}}</p>
+            <p style='float:left; padding-top: 1%; margin-right:2%; width: 20%; text-align: center;'>
+              {{results[i].percentChange}}
+            </p>
           </div>
         </div>
       </div>
@@ -52,9 +59,9 @@
     </div>
   </div>
 </div>
-<div class="class3" style="background-color:#ebf2ff; margin-left: 66.6%">
+<div class="class3" style="background-color:#ebf2ff; margin-left: 66.6%; text-align: center;">
   <div style='margin-top:1%;'>
-    <h4 style="display:inline; vertical-align: middle !important;">Upcoming Earnings</h4>
+    <h4 style="display:inline; vertical-align: middle !important;"></h4>
   </div>
   <button class="btn btn-light" style="background-color: transparent;" buttonClicked="true">
     ↺

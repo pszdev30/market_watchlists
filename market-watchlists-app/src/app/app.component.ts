@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   newArr: any = [];
   ngForArr: any = [];
   results: any[] = [];
-  holdingsArr: string[] = ['MSFT', 'NFLX', 'TMUS']
+  holdingsArr: string[] = ['LYFT']
   buttonClicked: boolean = false;
   pos: boolean;
 

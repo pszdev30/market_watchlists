@@ -7,10 +7,11 @@
 .class2,
 .class3 {
   width: 33.33%;
-  height: 100%;
+  height: 90%;
   position: absolute;
   display: inline-block;
   border: solid black 1px;
+  border-bottom: none;
   
 }
 
@@ -24,5 +25,5 @@ p {
 }
 
 .card-color-red {
-    background-color: #ff6961;
+    background-color: #FFC7C7;
 }
