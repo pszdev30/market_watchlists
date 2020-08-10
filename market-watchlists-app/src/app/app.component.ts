@@ -24,11 +24,12 @@ export class AppComponent implements OnInit {
   holdingsArr: string[] = ['LYFT']
   buttonClicked: boolean = false;
   pos: boolean;
+  isLoaded: boolean = false;
 
   constructor(private flaskService: FlaskService) { }
 
   ngOnInit() {
-    // this.getHoldingsList()
+    // this.getInitialHoldingsList()
     // let mySub: Subscription;
     // mySub = interval(15000).subscribe((func => {
     //   this.ngForArr = []
@@ -53,6 +54,11 @@ export class AppComponent implements OnInit {
 
   addToHoldingsArr(ticker: string) {
     this.holdingsArr.push(ticker)
+  }
+
+  getInitialHoldingsList() {
+    this.getHoldingsList();
+    this.isLoaded = true;
   }
 
   getHoldingsList() {

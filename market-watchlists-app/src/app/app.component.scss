@@ -10,7 +10,7 @@
   height: 90%;
   position: absolute;
   display: inline-block;
-  border: solid black 1px;
+  border: solid black .5px;
   border-bottom: none;
   
 }
@@ -27,3 +27,88 @@ p {
 .card-color-red {
     background-color: #FFC7C7;
 }
+
+.fade-in-headers {
+animation: fadeIn ease 4s;
+-webkit-animation: fadeIn ease 4s;
+-moz-animation: fadeIn ease 4s;
+-o-animation: fadeIn ease 4s;
+-ms-animation: fadeIn ease 4s;
+}
+
+.fade-in-refresh {
+  animation: fadeIn ease 4s;
+-webkit-animation: fadeIn ease 4s;
+-moz-animation: fadeIn ease 4s;
+-o-animation: fadeIn ease 4s;
+-ms-animation: fadeIn ease 4s;
+}
+
+.fade-in {
+animation: fadeIn ease 2s;
+-webkit-animation: fadeIn ease 2s;
+-moz-animation: fadeIn ease 2s;
+-o-animation: fadeIn ease 2s;
+-ms-animation: fadeIn ease 2s;
+}
+@keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+// div p {
+// // display: inline-block;
+// font-family: 'Roboto';
+// // font-size: 30px;
+// color: black;
+// text-transform: none;
+// // margin: 0 20px;
+// opacity: 0.0;
+// animation: fadeIn ease 2s;
+// -webkit-animation: fadeIn ease 2s;
+// }
+
+// @keyframes fadeIn {
+// 0% {opacity:0;}
+// 100% {opacity:1;}
+// }
+
+// @-moz-keyframes fadeIn {
+// 0% {opacity:0;}
+// 100% {opacity:1;}
+// }
+
+// @-webkit-keyframes fadeIn {
+// 0% {opacity:0;}
+// 100% {opacity:1;}
+// }
+
+// @-o-keyframes fadeIn {
+// 0% {opacity:0;}
+// 100% {opacity:1;}
+// }
+
+// @-ms-keyframes fadeIn {
+// 0% {opacity:0;}
+// 100% {opacity:1;}
+// }
