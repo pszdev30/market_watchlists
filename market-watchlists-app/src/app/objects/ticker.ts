@@ -1,7 +1,7 @@
 export class Ticker {
     name: string;
-    lastPrice: string;
-    change: string;
+    lastPrice: number;
+    change: number;
     numChange: number;
     positive: boolean;
     percentChange: string;

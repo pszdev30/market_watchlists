@@ -1,120 +1,15 @@
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-styling navbar-fixed-top">
-  <a class="navbar-brand">Stock Market Watchlists</a>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-  </div>
-  <div class="navbar-nav">
-    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#addStockToHoldings">Add Stock
-      to Holdings</button>
-  </div>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto"></ul>
-  </div>
+<!-- <button (click)="deleteFromHoldingsArr('MSFT')">
+    delete
+  </button> -->
 
-  <input class="form-control mr-sm-2" type="search" placeholder="Search for a stock!" aria-label="Search"
-    (input)="setTicker($event.target.value)" style="width: 250px;">
-  <button name="search" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
-</nav>
+<!-- <input class="form-control mr-sm-2" type="search" placeholder="Search for a stock!" aria-label="Search"
+      (input)="setTicker($event.target.value)" style="width: 250px;">
+    <button name="search" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button> -->
 
+<app-navbar></app-navbar>
 
-<div class="class1" style="background-color:#ebf2ff; text-align: center;">
-  <div style='margin-top:1%;'>
-    <h4 style="display:inline; vertical-align: middle !important;" class="fade-in-headers">Stocks to Watch</h4>
-  </div>
-  <button class="btn btn-light fade-in-refresh" style="background-color: transparent;" buttonClicked="true">
-    ↺
-  </button>
-</div>
-<div class="class2" style="background-color:#ebf2ff; margin-left: 33.3%; text-align: center;">
-  <div style='margin-top:1%;'>
-    <h4 style="display:inline; vertical-align: middle !important;" class="fade-in-headers">Current Holdings</h4>
-  </div>
-  <div style='margin-top:1%; margin-bottom:1%;'>
-    <button class="btn btn-light fade-in-refresh" style="background-color: transparent;"
-      (click)="getHoldingsList(); buttonClicked = true">
-      ↺
-    </button>
-  </div>
-  <div>
-    <div *ngIf="buttonClicked">
-      <div *ngFor="let i of ngForArr">
-        <div class="card text-center fade-in" style="margin-bottom: 3%; height: 4.5rem;"
-          [ngClass]="{'card-color-green': results[i].positive === true }"
-          [ngClass]="{'card-color-red': results[i].positive === false}">
-          <div class="card-body fade-in" [ngClass]="{'card-color-green': results[i].change > 0}">
-            <!-- style="border-right: solid black 1px; border-left: solid black 1px; border-top: solid black 1px; border-bottom: none;" -->
-            <p style='float:left; padding-top: 1%; margin-right:2%; width: 20%; text-align: center; font-weight: bold;'>
-              {{results[i].name}}</p>
-            <p
-              style='float:left; padding: 1%; margin-right:2%; width: 20%; text-align: center; vertical-align: middle;'>
-              ${{results[i].lastPrice}}</p>
-            <p style='float:left;  padding-top: 1%; margin-right:2%; width: 20%; text-align: center;'>
-              ${{results[i].change}}</p>
-            <p style='float:left; padding-top: 1%; margin-right:2%; width: 20%; text-align: center;'>
-              {{results[i].percentChange}}
-            </p>
-          </div>
-        </div>
-      </div>
+<app-potential-stocks></app-potential-stocks>
 
-    </div>
-  </div>
-</div>
-<div class="class3" style="background-color:#ebf2ff; margin-left: 66.6%; text-align: center;">
-  <div style='margin-top:1%;'>
-    <h4 style="display:inline; vertical-align: middle !important;" class="fade-in-headers">Cybersecurity Stocks</h4>
-  </div>
-  <button class="btn btn-light fade-in-refresh" style="background-color: transparent;" buttonClicked="true">
-    ↺
-  </button>
-</div>
+<app-holdings></app-holdings>
 
-
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="addStockToHoldings" data-backdrop="static" data-keyboard="false" tabindex="-1"
-  aria-labelledby="addStockToHoldingsLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Add Stock to Holdings</h5>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Ticker:</label>
-            <input type="text" class="form-control" id="ticker" (input)="setTicker($event.target.value)">
-          </div>
-          <label style="margin-top: 5px; margin-right: 15px;">Stock or Options?</label>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="stock" id="stock" value="stock" required
-              [checked]="type=='stock'" (click)="setType($event.target.value)">
-            <label class="form-check-label" for="inlineRadioStock">Stock</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="options" id="options" value="options" required
-              [checked]="type=='options'" (click)="setType($event.target.value)">
-            <label class="form-check-label" for="inlineRadioOptions">Options</label>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Number of Shares/Contracts:</label>
-            <input type="text" class="form-control" id="numOfSharesContracts"
-              (input)="setNumOfSharesContracts($event.target.value)">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal"
-          (click)="resetAddToHoldingsModal()">Close</button>
-        <button type="button" class="btn btn-primary" (click)="addToHoldingsArr(ticker); resetAddToHoldingsModal()"
-          data-dismiss="modal">Add to
-          Holdings
-
-          List</button>
-      </div>
-    </div>
-  </div>
-</div>
+<app-random></app-random>
