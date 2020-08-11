@@ -1,0 +1,98 @@
+@import "src/assets/variables";
+
+// .class1 {
+// width: 33.33%;
+//   height: 90%;
+//   position: absolute;
+//   display: inline-block;
+//   border: solid black .5px;
+//   border-top: none;
+//   border-bottom: none;
+//   border-radius: 7.5px;
+// }
+
+.container-style {
+  height: 90%; 
+  position: absolute; 
+  width: 33.33%; 
+  float: left; 
+  border: 1px solid whitesmoke; 
+  border-top: none;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.header {
+  text-align: center;
+  color: whitesmoke;
+  font: $font-regular;
+  font-weight: $font-weight-bold;
+  margin-top: 1%;
+
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+.button-suite {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.card-color-green {
+    background-color: #4CAF50;
+}
+
+.card-color-red {
+    background-color: #f44336;
+}
+
+.fade-in-headers {
+animation: fadeIn ease 4s;
+-webkit-animation: fadeIn ease 4s;
+-moz-animation: fadeIn ease 4s;
+-o-animation: fadeIn ease 4s;
+-ms-animation: fadeIn ease 4s;
+}
+
+.fade-in-refresh {
+  animation: fadeIn ease 4s;
+-webkit-animation: fadeIn ease 4s;
+-moz-animation: fadeIn ease 4s;
+-o-animation: fadeIn ease 4s;
+-ms-animation: fadeIn ease 4s;
+}
+
+.fade-in {
+animation: fadeIn ease 2s;
+-webkit-animation: fadeIn ease 2s;
+-moz-animation: fadeIn ease 2s;
+-o-animation: fadeIn ease 2s;
+-ms-animation: fadeIn ease 2s;
+}
+@keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}

@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" style="color: whitesmoke;">Stock Market Watchlists</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
+        aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="addStockToHoldings" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="addStockToHoldingsLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add Stock to Holdings</h5>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Ticker:</label>
+                        <input type="text" class="form-control" id="ticker" (input)="setTicker($event.target.value)">
+                    </div>
+                    <label style="margin-top: 5px; margin-right: 15px;">Stock or Options?</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="stock" id="stock" value="stock" required
+                            [checked]="type=='stock'" (click)="setType($event.target.value)">
+                        <label class="form-check-label" for="inlineRadioStock">Stock</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="options" id="options" value="options"
+                            required [checked]="type=='options'" (click)="setType($event.target.value)">
+                        <label class="form-check-label" for="inlineRadioOptions">Options</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Number of Shares/Contracts:</label>
+                        <input type="text" class="form-control" id="numOfSharesContracts"
+                            (input)="setNumOfSharesContracts($event.target.value)">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal"
+                    (click)="resetAddToHoldingsModal()">Close</button>
+                <button type="button" class="btn btn-primary"
+                    (click)="addToHoldingsArr(ticker); resetAddToHoldingsModal()" data-dismiss="modal">Add to
+                    Holdings
+
+                    List</button>
+            </div>
+        </div>
+    </div>
+</div> -->
