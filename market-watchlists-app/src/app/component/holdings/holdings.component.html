@@ -28,30 +28,45 @@
 
         <div *ngIf="buttonClicked">
             <div *ngFor="let i of ngForArr">
-                <div class="card text-white text-center fade-in" style="margin-bottom: 3%; height: 4.5rem;"
+                <div class="card text-white fade-in" style="margin-bottom: 3%; height: 100%; width: 100%;"
                     [ngClass]="{'bg-success': results[i].positive === true }"
                     [ngClass]="{'bg-danger': results[i].positive === false }">
-                    <div class="card-body fade-in" style="padding: 0;"
+                    <div class="card-body justify-content-center align-items-center fade-in"
                         [ngClass]="{'bg-success': results[i].change > 0}">
-                        <div class="container" style="height: 100%;">
-                            <p
-                                style='float:left; padding-top: 1%; margin-right:2%; width: 20%; text-align: left; font-weight: bold; height: 100%;'>
-                                {{results[i].name}}</p>
-                            <p
-                                style='float:left; padding: 1%; margin-right:2%; width: 20%; text-align: center; vertical-align: middle; height: 100%;'>
-                                ${{results[i].lastPrice}}</p>
-                            <p
-                                style='float:left;  padding-top: 1%; margin-right:2%; width: 20%; text-align: center; height: 100%;'>
-                                ${{results[i].change}}</p>
-                            <p
-                                style='float:left; padding-top: 1%; margin-right:2%; width: 20%; text-align: center; height: 100%;'>
-                                {{results[i].percentChange}}
-                            </p>
-                            <button class="btn btn-sm"
-                                style="background-color: transparent; border: none; height: 100%;">
-                                <i class="material-icons">delete</i>
-                            </button>
-                        </div>
+                        <p style='float:left; width: 20%; border: solid 1px black; font-weight: bold; '>
+                            {{results[i].name}}</p>
+                        <p style='float:left; width: 20%; border: solid 1px black; text-align: center; '>
+                            ${{results[i].lastPrice}}</p>
+                        <p style='float:left; width: 20%; border: solid 1px black; text-align: center; '>
+                            ${{results[i].change}}</p>
+                        <p style='float:left; width: 20%; border: solid 1px black; text-align: center;  '>
+                            {{results[i].percentChange}}
+                        </p>
+                        <!-- <button class="btn btn-sm" style="background-color: transparent; border: solid 1px black;"> -->
+                            <i class="material-icons" style="border: solid 1px black;">close</i>
+                        <!-- </button> -->
+
+                        <!-- <div class="container align-items-center" style="width: 100%;">
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-2" style="float: left; width: 20%;">
+                                    {{results[i].name}}
+                                </div>
+                                <div class="col-2" style="float: left; width: 20%;">
+                                    ${{results[i].lastPrice}}
+                                </div>
+                                <div class="col-1" style="float: left; width: 20%;">
+                                    ${{results[i].change}}
+                                </div>
+                                <div class="col-2" style="float: left; width: 20%;">
+                                    {{results[i].percentChange}}
+                                </div> -->
+                        <!-- <div class="col-1" style="width: 20%; "> -->
+                        <!-- <button class="btn btn-sm" style="background-color: transparent; border: none;"> -->
+                        <!-- <i class="material-icons" style="float: inline-end;">delete</i> -->
+                        <!-- </button> -->
+                        <!-- </div> -->
+                        <!-- </div>
+                        </div> -->
                     </div>
                     <!--  -->
 
