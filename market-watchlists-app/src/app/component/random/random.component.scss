@@ -1,27 +1,49 @@
 @import "src/assets/variables";
 
-.class3 {
-  width: 33.33%;
-  height: 90%;
-  position: absolute;
-  display: inline-block;
-  border: solid black .5px;
-  border-top: none;
-  border-bottom: none;
-  border-radius: 7.5px;
-}
+// .class3 {
+//   width: 33.33%;
+//   height: 90%;
+//   position: absolute;
+//   display: inline-block;
+//   border: solid black .5px;
+//   border-top: none;
+//   border-bottom: none;
+//   border-radius: 7.5px;
+// }
 
-p {
-  padding-top: 25px;
+.container-style {
+  height: 90%; 
+  position: absolute; 
+  width: 33.33%; 
+  float: left; 
+  border: 1px solid whitesmoke; 
+  // border-top: none;
+  border-radius: 20px;
   text-align: center;
-  font-size: smaller;
-  font-family: $font-regular;
-  font-weight: $font-weight-regular;
 }
 
-.headings {
-  font-family: $font-regular;
+.header-div {
+  margin-left: 66.66%;
+  margin-top: 1%;
+}
+
+.header {
+  text-align: center;
+  color: whitesmoke;
+  font: $font-regular;
   font-weight: $font-weight-bold;
+  margin-top: 1%;
+
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+.button-suite {
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 .card-color-green {

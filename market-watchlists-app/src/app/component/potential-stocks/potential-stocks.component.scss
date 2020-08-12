@@ -17,9 +17,13 @@
   width: 33.33%; 
   float: left; 
   border: 1px solid whitesmoke; 
-  border-top: none;
+  // border-top: none;
   border-radius: 20px;
   text-align: center;
+}
+
+.header-div {
+  margin-top: 1%;
 }
 
 .header {
@@ -66,11 +70,11 @@ animation: fadeIn ease 4s;
 }
 
 .fade-in {
-animation: fadeIn ease 2s;
--webkit-animation: fadeIn ease 2s;
--moz-animation: fadeIn ease 2s;
--o-animation: fadeIn ease 2s;
--ms-animation: fadeIn ease 2s;
+animation: fadeIn ease 3s;
+-webkit-animation: fadeIn ease 3s;
+-moz-animation: fadeIn ease 3s;
+-o-animation: fadeIn ease 3s;
+-ms-animation: fadeIn ease 3s;
 }
 @keyframes fadeIn {
 0% {opacity:0;}

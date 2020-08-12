@@ -17,7 +17,7 @@ export class HoldingsComponent implements OnInit {
   newArr: any = [];
   ngForArr: any = [];
   results: any[] = [];
-  holdingsArr: string[] = ['LYFT']
+  holdingsArr: string[] = ['BA']
   buttonClicked: boolean = false;
 
   constructor(private api: ApiService) { }
