@@ -12,16 +12,18 @@
         </div>
         <div>
             <div class="container button-suite">
-                <button class="fade-in-refresh">
-                    <i class="material-icons" style="color: whitesmoke;">add_circle</i>
+                <button class="fade-in-refresh" data-toggle="modal" data-target="#addToHoldings" (click)="resetModal()">
+                    <i class="material-icons">add_circle</i>
                 </button>
                 <button class="fade-in-refresh">
-                    <i class="material-icons" style="color: whitesmoke;"
-                        (click)="getHoldingsList(); buttonClicked = true">refresh</i>
+                    <i class="material-icons" (click)="getHoldings(); buttonClicked = true">refresh</i>
                 </button>
                 <button class="fade-in-refresh">
-                    <i class="material-icons" style="color: whitesmoke;">delete</i>
+                    <i class="material-icons">delete</i>
                 </button>
+                <!-- <button (click)="toxicity()">
+                    <i class="material-icons">backup</i>
+                </button> -->
             </div>
         </div>
 
@@ -33,6 +35,7 @@
                     [ngClass]="{'bg-danger': results[i].positive === false }">
                     <div class="card-body justify-content-center align-items-center fade-in"
                         [ngClass]="{'bg-success': results[i].change > 0}">
+
                         <p style='float:left; width: 20%; border: solid 1px black; font-weight: bold; '>
                             {{results[i].name}}</p>
                         <p style='float:left; width: 20%; border: solid 1px black; text-align: center; '>
@@ -43,7 +46,8 @@
                             {{results[i].percentChange}}
                         </p>
                         <!-- <button class="btn btn-sm" style="background-color: transparent; border: solid 1px black;"> -->
-                            <i class="material-icons" style="border: solid 1px black;">close</i>
+                        <i class="material-icons" style="border: solid 1px black;"
+                            (click)="removeFromHoldings(results[i].name)">close</i>
                         <!-- </button> -->
 
                         <!-- <div class="container align-items-center" style="width: 100%;">
@@ -75,6 +79,38 @@
         </div>
     </div>
 </div>
+
+
+
+<!-- Add to Holdings Modal -->
+<div class="modal fade" id="addToHoldings" tabindex="-1" aria-labelledby="addToHoldingsLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-styling">
+            <div class="modal-header">
+                <h5 class="modal-title">Add to Holdings</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label class="col-form-label" for="inputDefault">Enter a ticker: </label>
+                        <input type="text" class="form-control" placeholder="Enter a ticker" id="tickerToAdd"
+                            [(ngModel)]="ticker" [ngModelOptions]="{standalone: true}"
+                            (input)="setTicker($event.target.value)">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="resetModal()">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                    (click)="addToHoldings(ticker)">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 <!-- <p

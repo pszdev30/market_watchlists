@@ -11,6 +11,9 @@ import { HoldingsComponent } from './component/holdings/holdings.component';
 import { PotentialStocksComponent } from './component/potential-stocks/potential-stocks.component';
 import { RandomComponent } from './component/random/random.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -26,7 +29,9 @@ import { NavbarComponent } from './component/navbar/navbar.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [ApiService, HoldingsResolverService],
   bootstrap: [AppComponent]
