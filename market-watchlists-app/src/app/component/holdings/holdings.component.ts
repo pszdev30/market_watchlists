@@ -1,7 +1,6 @@
 import { TransferService } from './../../service/transfer.service';
-import { Component, OnInit, ɵConsole } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
-import { ActivatedRoute } from '@angular/router';
 import { Ticker } from 'src/app/objects/ticker';
 import { AngularFireDatabase } from '@angular/fire/database';
 
@@ -25,7 +24,6 @@ export class HoldingsComponent implements OnInit {
   tracker: number = 0;
   done: boolean;
 
-
   constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService) { }
 
   ngOnInit() {
@@ -39,6 +37,8 @@ export class HoldingsComponent implements OnInit {
       })
     })
   }
+
+
   triggerGetHoldings() {
     this.transferService.triggerGetHoldings(true);
   }
@@ -53,50 +53,32 @@ export class HoldingsComponent implements OnInit {
     this.triggerRefresh();
   }
 
-  // addToHoldingsArr(ticker: string) {
-  //   this.holdingsArr.push(ticker)
-  // }
-
-  // deleteFromHoldingsArr(ticker: string) {
-  //   this.holdingsArr = this.holdingsArr.filter(item => item !== ticker);
-  //   console.log(this.holdingsArr)
-  // }
-
   triggerRefresh() {
     this.transferService.triggerRefresh(true)
   }
 
   getHoldings() {
-    // if (this.tracker == 0) {
-      this.triggerRefresh()
-    //   this.tracker++;
-    // }
+    this.triggerRefresh()
+    this.reset();
 
     this.transferService.getHoldingsObservable$.subscribe(() => {
-      this.reset();
-      let i = 0;
       for (var ticker of this.holdingsArr) {
-        this.api.getHoldingsList(ticker).subscribe((quote) => {
+        this.api.getHoldings(ticker).subscribe((quote: any) => {
           console.log(quote)
           let ticker: Ticker = new Ticker();
-          ticker.name = quote['Global Quote']['01. symbol'];
-          ticker.lastPrice = Number(quote['Global Quote']['05. price']);
-          ticker.change = Number(quote['Global Quote']['09. change'])
-          ticker.numChange = Number(quote['Global Quote']['09. change'])
+          ticker.name = quote.symbol;
+          ticker.lastPrice = quote.latestPrice;
+          ticker.change = quote.change;
+          ticker.percentChange = quote.changePercent;
 
-          if (ticker.numChange > 0) ticker.positive = true
+          if (ticker.change > 0) ticker.positive = true
           else ticker.positive = false;
-
-          ticker.percentChange = quote['Global Quote']['10. change percent']
-
+          
           this.results.push(ticker)
         });
-        this.ngForArr.push(i++)
+        // this.ngForArr.push(i++)
       }
     })
-
-
-
   }
 
   setTicker($event: any) {
@@ -128,9 +110,6 @@ export class HoldingsComponent implements OnInit {
   // }
 
   resetAddToHoldingsModal() {
-    // this.tickerElem.nativeElement.value = '';
-    // this.typeElem.nativeElement.value = '';
-    // this.sharesContractsElem.nativeElement.value = '';
     this.ticker = '';
     this.type = '';
     this.numOfSharesContracts = '';

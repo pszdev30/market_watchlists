@@ -1,4 +1,3 @@
-import { HoldingsResolverService } from './holdings-resolver.service';
 import { ApiService } from './service/api.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -33,7 +32,7 @@ import { environment } from 'src/environments/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule
   ],
-  providers: [ApiService, HoldingsResolverService],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

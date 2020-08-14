@@ -21,33 +21,33 @@
                 <button class="fade-in-refresh">
                     <i class="material-icons">delete</i>
                 </button>
-                <!-- <button (click)="toxicity()">
+                <button (click)="tester()">
                     <i class="material-icons">backup</i>
-                </button> -->
+                </button>
             </div>
         </div>
 
 
-        <div *ngIf="buttonClicked">
-            <div *ngFor="let i of ngForArr">
+        <!-- <div *ngIf="buttonClicked"> -->
+            <div *ngFor="let elem of results">
                 <div class="card text-white fade-in" style="margin-bottom: 3%; height: 100%; width: 100%;"
-                    [ngClass]="{'bg-success': results[i].positive === true }"
-                    [ngClass]="{'bg-danger': results[i].positive === false }">
+                    [ngClass]="{'bg-success': elem.positive === true }"
+                    [ngClass]="{'bg-danger': elem.positive === false }">
                     <div class="card-body justify-content-center align-items-center fade-in"
-                        [ngClass]="{'bg-success': results[i].change > 0}">
+                        [ngClass]="{'bg-success': elem.change > 0}">
 
                         <p style='float:left; width: 20%; border: solid 1px black; font-weight: bold; '>
-                            {{results[i].name}}</p>
+                            {{elem.name}}</p>
                         <p style='float:left; width: 20%; border: solid 1px black; text-align: center; '>
-                            ${{results[i].lastPrice}}</p>
+                            ${{elem.lastPrice}}</p>
                         <p style='float:left; width: 20%; border: solid 1px black; text-align: center; '>
-                            ${{results[i].change}}</p>
+                            ${{elem.change}}</p>
                         <p style='float:left; width: 20%; border: solid 1px black; text-align: center;  '>
-                            {{results[i].percentChange}}
+                            {{elem.percentChange}}
                         </p>
                         <!-- <button class="btn btn-sm" style="background-color: transparent; border: solid 1px black;"> -->
                         <i class="material-icons" style="border: solid 1px black;"
-                            (click)="removeFromHoldings(results[i].name)">close</i>
+                            (click)="removeFromHoldings(elem.name)">close</i>
                         <!-- </button> -->
 
                         <!-- <div class="container align-items-center" style="width: 100%;">
@@ -76,7 +76,7 @@
 
                 </div>
             </div>
-        </div>
+        <!-- </div> -->
     </div>
 </div>
 
