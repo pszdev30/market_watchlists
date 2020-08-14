@@ -10,19 +10,11 @@ import { AngularFireDatabase } from '@angular/fire/database';
   styleUrls: ['./holdings.component.scss']
 })
 export class HoldingsComponent implements OnInit {
-
   ticker: string = '';
-  type: string = '';
-  numOfSharesContracts: string = '';
   firstCount: number = 0;
-  newArr: any = [];
-  ngForArr: any = [];
   results: any[] = [];
   holdingsArr: string[] = ['IBM']
   buttonClicked: boolean = false;
-  toxic: any[] = [];
-  tracker: number = 0;
-  done: boolean;
 
   constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService) { }
 
@@ -30,7 +22,6 @@ export class HoldingsComponent implements OnInit {
     this.transferService.refreshClickedObservable$.subscribe(() => {
       this.db.list('/Holdings').valueChanges().subscribe((holdings: any) => {
         this.holdingsArr = []
-        this.done = false;
         for (let i = 0; i < holdings.length; i++)
           this.holdingsArr.push(holdings[i])
         this.triggerGetHoldings();
@@ -62,8 +53,9 @@ export class HoldingsComponent implements OnInit {
     this.reset();
 
     this.transferService.getHoldingsObservable$.subscribe(() => {
-      for (var ticker of this.holdingsArr) {
-        this.api.getHoldings(ticker).subscribe((quote: any) => {
+      this.results = []
+      for (let i = 0; i < this.holdingsArr.length; i++) {
+        this.api.getHoldings(this.holdingsArr[i]).subscribe((quote: any) => {
           console.log(quote)
           let ticker: Ticker = new Ticker();
           ticker.name = quote.symbol;
@@ -73,12 +65,11 @@ export class HoldingsComponent implements OnInit {
 
           if (ticker.change > 0) ticker.positive = true
           else ticker.positive = false;
-          
+
           this.results.push(ticker)
         });
-        // this.ngForArr.push(i++)
       }
-    })
+    });
   }
 
   setTicker($event: any) {
@@ -92,8 +83,9 @@ export class HoldingsComponent implements OnInit {
 
 
   private reset() {
+    this.holdingsArr = []
     this.results = [];
-    this.ngForArr = [];
+    // this.ngForArr = [];
     this.buttonClicked = false;
   }
 
@@ -111,8 +103,8 @@ export class HoldingsComponent implements OnInit {
 
   resetAddToHoldingsModal() {
     this.ticker = '';
-    this.type = '';
-    this.numOfSharesContracts = '';
+    // this.type = '';
+    // this.numOfSharesContracts = '';
   }
 
 }

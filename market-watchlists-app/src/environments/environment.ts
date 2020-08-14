@@ -21,7 +21,9 @@ export const environment = {
 
   //IEX Cloud API config
   IEX_BASE_URL: 'https://cloud.iexapis.com/stable/stock/',
+  IEX_BASE_SANDBOX_URL: 'https://sandbox.iexapis.com/stable/stock/',
   IEX_API_TOKEN: 'pk_4a09995ad6854e28a38018bdd36eb410',
+  IEX_API_TEST_TOKEN: 'Tpk_12e6eee6ed7d4026a0a87dee063b86bd',
   IEX_API_SECRET_TOKEN: 'sk_ab7c1d3c8db94a309d4adf0b68d5c521',
   IEX_API_SECRET_VERSION: 'beta',
   IEX_API_ENV: 'cloud',

@@ -18,7 +18,7 @@ export class ApiService {
   //   return this.http.get(environment.alphaVantageBaseUrl + ticker + '&apikey=' + environment.alphaVantageApiKey)
   // }
 
-  getHoldings(ticker: string) {
+  getHoldings(ticker: any) {
     return this.http.get(environment.IEX_BASE_URL + ticker + '/quote?token=' + environment.IEX_API_TOKEN)
   }
 

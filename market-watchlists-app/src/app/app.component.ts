@@ -64,26 +64,26 @@ export class AppComponent implements OnInit {
   }
 
   getHoldingsList() {
-    this.reset();
-    let i = 0;
-    for (var ticker of this.holdingsArr) {
-      this.api.getHoldingsList(ticker).subscribe((quote) => {
-        console.log(quote)
-        let ticker: Ticker = new Ticker();
-        ticker.name = quote['Global Quote']['01. symbol'];
-        ticker.lastPrice = Number(quote['Global Quote']['05. price']);
-        ticker.change = Number(quote['Global Quote']['09. change'])
-        ticker.numChange = Number(quote['Global Quote']['09. change'])
+    // this.reset();
+    // let i = 0;
+    // for (var ticker of this.holdingsArr) {
+    //   this.api.getHoldingsList(ticker).subscribe((quote) => {
+    //     console.log(quote)
+    //     let ticker: Ticker = new Ticker();
+    //     ticker.name = quote['Global Quote']['01. symbol'];
+    //     ticker.lastPrice = Number(quote['Global Quote']['05. price']);
+    //     ticker.change = Number(quote['Global Quote']['09. change'])
+    //     ticker.numChange = Number(quote['Global Quote']['09. change'])
 
-        if (ticker.numChange > 0) ticker.positive = true
-        else ticker.positive = false;
+    //     if (ticker.numChange > 0) ticker.positive = true
+    //     else ticker.positive = false;
 
-        ticker.percentChange = quote['Global Quote']['10. change percent']
+    //     ticker.percentChange = quote['Global Quote']['10. change percent']
 
-        this.results.push(ticker)
-      });
-      this.ngForArr.push(i++)
-    }
+    //     this.results.push(ticker)
+    //   });
+    //   this.ngForArr.push(i++)
+    // }
   }
 
 
