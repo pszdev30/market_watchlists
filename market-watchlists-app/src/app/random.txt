@@ -1,0 +1,42 @@
+// this.activatedRoute.data.subscribe(data => console.log(data))
+    // this.api.getHoldingsList('MSFT').subscribe(data => this.test = data)
+
+    // let mySub: Subscription;
+    // mySub = interval(15000).subscribe((func => {
+    //   this.ngForArr = []
+    //   for (var ticker of this.holdingsArr) {
+    //     this.ngForArr = []
+    //     this.apiService.getTicker(ticker).then((quote) => {
+    //       let ticker: Ticker = new Ticker();
+    //       ticker.name = quote['Global Quote']['01. symbol'];
+    //       ticker.lastPrice = quote['Global Quote']['05. price'];
+    //       ticker.change = quote['Global Quote']['09. change']
+    //       ticker.percentChange = quote['Global Quote']['10. change percent']
+    //       this.results.push(ticker)
+    //       for (let i = 0; i < this.results.length; i++)
+    //         this.ngForArr.push(i)
+    //     });
+    //   };
+
+    // }));
+    // console.log(this.results);
+
+
+  // addToHoldingsArr(ticker: string) {
+  //   this.holdingsArr.push(ticker)
+  // }
+
+  // deleteFromHoldingsArr(ticker: string) {
+  //   this.holdingsArr = this.holdingsArr.filter(item => item !== ticker);
+  //   console.log(this.holdingsArr)
+  // }
+
+    // ticker.name = quote['Global Quote']['01. symbol'];
+    // ticker.lastPrice = Number(quote['Global Quote']['05. price']);
+    // ticker.change = Number(quote['Global Quote']['09. change'])
+    // ticker.numChange = Number(quote['Global Quote']['09. change'])
+    // ticker.percentChange = quote['Global Quote']['10. change percent']
+
+    // this.tickerElem.nativeElement.value = '';
+    // this.typeElem.nativeElement.value = '';
+    // this.sharesContractsElem.nativeElement.value = '';
