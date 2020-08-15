@@ -10,23 +10,32 @@ import { AngularFireDatabase } from '@angular/fire/database';
   styleUrls: ['./holdings.component.scss']
 })
 export class HoldingsComponent implements OnInit {
-  ticker: string = '';
-  firstCount: number = 0;
+  ticker: string;
+  // firstCount: number = 0;
   results: any[] = [];
-  holdingsArr: string[] = ['IBM']
+  holdingsArr: string[] = []
   buttonClicked: boolean = false;
 
   constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService) { }
 
   ngOnInit() {
     this.transferService.refreshClickedObservable$.subscribe(() => {
-      this.db.list('/Holdings').valueChanges().subscribe((holdings: any) => {
-        this.holdingsArr = []
-        for (let i = 0; i < holdings.length; i++)
-          this.holdingsArr.push(holdings[i])
+      this.holdingsArr = []
+      this.db.database.ref('/Holdings').once('value').then((resp) => {
+        console.log(resp.val())
+        for (const value in resp.val()) {
+          this.holdingsArr.push(value)
+          console.log(this.holdingsArr)
+        }
         this.triggerGetHoldings();
       })
+      // this.db.list('/Holdings').snapshotChanges().subscribe((holdings: any) => {
+      //   for (let i = 0; i < holdings.length; i++)
+      //     this.holdingsArr.push(holdings[i].payload.node_.value_)
+      //   this.triggerGetHoldings();
+      // })
     })
+
 
 
     this.transferService.getHoldingsObservable$.subscribe(() => {
@@ -45,8 +54,13 @@ export class HoldingsComponent implements OnInit {
 
           this.results.push(ticker)
         });
-        // this.ngForArr.push(i++)
       }
+    })
+  }
+
+  test() {
+    this.db.database.ref('/Holdings').once('value').then((resp) => {
+      console.log(resp.val())
     })
   }
 

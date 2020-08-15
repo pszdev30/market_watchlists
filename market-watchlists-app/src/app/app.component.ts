@@ -1,6 +1,7 @@
+import { TransferService } from './service/transfer.service';
 import { Ticker } from './objects/ticker';
 import { ApiService } from './service/api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   // @ViewChild('ticker') tickerElem: ElementRef;
   // @ViewChild('type') typeElem: ElementRef;
   // @ViewChild('sharesContracts') sharesContractsElem: ElementRef;
@@ -26,9 +27,10 @@ export class AppComponent implements OnInit {
   holdingsArr: string[] = ['LYFT']
   buttonClicked: boolean = false;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private transferService: TransferService) { }
 
   ngOnInit() {
+    // this.transferService.triggerRefresh(true);
     // this.activatedRoute.data.subscribe(data => console.log(data))
     // this.api.getHoldingsList('MSFT').subscribe(data => this.test = data)
 
@@ -54,14 +56,18 @@ export class AppComponent implements OnInit {
 
   }
 
-  addToHoldingsArr(ticker: string) {
-    this.holdingsArr.push(ticker)
+  ngAfterViewInit() {
+    this.transferService.triggerRefresh(true);
   }
 
-  deleteFromHoldingsArr(ticker: string) {
-    this.holdingsArr = this.holdingsArr.filter(item => item !== ticker);
-    console.log(this.holdingsArr)
-  }
+  // addToHoldingsArr(ticker: string) {
+  //   this.holdingsArr.push(ticker)
+  // }
+
+  // deleteFromHoldingsArr(ticker: string) {
+  //   this.holdingsArr = this.holdingsArr.filter(item => item !== ticker);
+  //   console.log(this.holdingsArr)
+  // }
 
   getHoldingsList() {
     // this.reset();
