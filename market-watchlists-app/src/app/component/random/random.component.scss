@@ -16,7 +16,8 @@
   position: absolute; 
   width: 33.33%; 
   float: left; 
-  border: 1px solid whitesmoke; 
+  // border: 1px solid whitesmoke; 
+  overflow-y: scroll;
   // border-top: none;
   border-radius: 20px;
   text-align: center;
@@ -100,4 +101,20 @@ animation: fadeIn ease 2s;
 @-ms-keyframes fadeIn {
 0% {opacity:0;}
 100% {opacity:1;}
+}
+
+::-webkit-scrollbar {
+width: 15px;
+height: 15px;
+}
+
+::-webkit-scrollbar-track-piece  {
+background-color: #232526;
+background-color: #444
+}
+
+::-webkit-scrollbar-thumb:vertical {
+height: 10px;
+background-color: #303030;
+background-color: whitesmoke;
 }
