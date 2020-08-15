@@ -11,37 +11,26 @@ import { AngularFireDatabase } from '@angular/fire/database';
 })
 export class HoldingsComponent implements OnInit {
   ticker: string;
-  // firstCount: number = 0;
   results: any[] = [];
-  holdingsArr: string[] = []
-  buttonClicked: boolean = false;
+  holdings: string[] = []
 
   constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService) { }
 
   ngOnInit() {
     this.transferService.refreshClickedObservable$.subscribe(() => {
-      this.holdingsArr = []
+      this.holdings = []
       this.db.database.ref('/Holdings').once('value').then((resp) => {
-        // console.log(resp.val())
-        for (const key in resp.val()) {
-          this.holdingsArr.push(resp.val()[key])
-          // console.log(this.holdingsArr)
-        }
-        console.log(this.holdingsArr)
+        for (const key in resp.val())
+          this.holdings.push(resp.val()[key])
+        console.log(this.holdings)
         this.triggerGetHoldings();
-      })
-      // this.db.list('/Holdings').snapshotChanges().subscribe((holdings: any) => {
-      //   for (let i = 0; i < holdings.length; i++)
-      //     this.holdingsArr.push(holdings[i].payload.node_.value_)
-      //   this.triggerGetHoldings();
-      // })
-    })
-
+      });
+    });
 
 
     this.transferService.getHoldingsObservable$.subscribe(() => {
       this.results = []
-      for (var ticker of this.holdingsArr) {
+      for (var ticker of this.holdings) {
         this.api.getHoldings(ticker).subscribe((quote: any) => {
           console.log(quote)
           let ticker: Ticker = new Ticker();
@@ -56,7 +45,7 @@ export class HoldingsComponent implements OnInit {
           this.results.push(ticker)
         });
       }
-    })
+    });
   }
 
 
@@ -74,16 +63,15 @@ export class HoldingsComponent implements OnInit {
     this.triggerRefresh();
   }
 
+  removeAllHoldings() {
+    for (var holding of this.holdings)
+      this.db.database.ref('/Holdings').child(holding).remove()
+    this.triggerRefresh();
+  }
+
   triggerRefresh() {
     this.transferService.triggerRefresh(true)
   }
-
-  // getHoldings() {
-  //   this.triggerRefresh()
-  //   this.reset();
-
-
-  // }
 
   setTicker($event: any) {
     this.ticker = $event;
@@ -94,25 +82,11 @@ export class HoldingsComponent implements OnInit {
     this.ticker = '';
   }
 
-
-  private reset() {
-    this.holdingsArr = []
+  reset() {
+    this.holdings = []
     this.results = [];
-    // this.ngForArr = [];
-    this.buttonClicked = false;
   }
 
-  // setTicker(ticker: string) {
-  //   this.ticker = ticker;
-  // }
-
-  // setType(type: string) {
-  //   this.type = type;
-  // }
-
-  // setNumOfSharesContracts(num: string) {
-  //   this.numOfSharesContracts = num;
-  // }
 
   resetAddToHoldingsModal() {
     this.ticker = '';

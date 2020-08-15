@@ -20,6 +20,8 @@
   // border-top: none;
   border-radius: 20px;
   text-align: center;
+  overflow-y: scroll;
+  scrollbar-color: #303030;
 }
 
 .header-div {
@@ -63,11 +65,11 @@ i {
 }
 
 .fade-in-headers {
-animation: fadeIn ease 4s;
--webkit-animation: fadeIn ease 4s;
--moz-animation: fadeIn ease 4s;
--o-animation: fadeIn ease 4s;
--ms-animation: fadeIn ease 4s;
+  animation: fadeIn ease 4s;
+  -webkit-animation: fadeIn ease 4s;
+  -moz-animation: fadeIn ease 4s;
+  -o-animation: fadeIn ease 4s;
+  -ms-animation: fadeIn ease 4s;
 }
 
 .fade-in-refresh {
@@ -79,11 +81,11 @@ animation: fadeIn ease 4s;
 }
 
 .fade-in {
-animation: fadeIn ease 3s;
--webkit-animation: fadeIn ease 3s;
--moz-animation: fadeIn ease 3s;
--o-animation: fadeIn ease 3s;
--ms-animation: fadeIn ease 3s;
+  animation: fadeIn ease 3s;
+  -webkit-animation: fadeIn ease 3s;
+  -moz-animation: fadeIn ease 3s;
+  -o-animation: fadeIn ease 3s;
+  -ms-animation: fadeIn ease 3s;
 }
 @keyframes fadeIn {
 0% {opacity:0;}

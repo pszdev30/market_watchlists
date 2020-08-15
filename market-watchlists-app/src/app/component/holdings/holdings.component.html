@@ -4,28 +4,32 @@
 <div class="header-div">
 
     <div class="container container-style fade-in">
-        <div class="header fade-in-headers">
-            <!-- style="display:inline; vertical-align: middle !important;  color: #fff;" -->
-            <h4 class="headings fade-in-headers">
-                Current Holdings
-            </h4>
-        </div>
-        <div>
-            <div class="container button-suite">
-                <button class="fade-in-refresh" data-toggle="modal" data-target="#addToHoldings" (click)="resetModal()">
-                    <i class="material-icons">add_circle</i>
-                </button>
-                <button class="fade-in-refresh">
-                    <i class="material-icons" (click)="triggerRefresh(); buttonClicked = true">refresh</i>
-                </button>
-                <button class="fade-in-refresh">
-                    <i class="material-icons">delete</i>
-                </button>
-                <!-- <button (click)="test()">
+        <div class="sticky-top" style="background-color: #222;">
+            <div class="header fade-in-headers sticky-top">
+                <!-- style="display:inline; vertical-align: middle !important;  color: #fff;" -->
+                <h4 class="headings fade-in-headers">
+                    Current Holdings
+                </h4>
+            </div>
+            <div>
+                <div class="container button-suite">
+                    <button class="fade-in-refresh" data-toggle="modal" data-target="#addToHoldings"
+                        (click)="resetModal()">
+                        <i class="material-icons">add_circle</i>
+                    </button>
+                    <button class="fade-in-refresh">
+                        <i class="material-icons" (click)="triggerRefresh()">refresh</i>
+                    </button>
+                    <button class="fade-in-refresh">
+                        <i class="material-icons" (click)="removeAllHoldings()">delete</i>
+                    </button>
+                    <!-- <button (click)="test()">
                     <i class="material-icons">backup</i>
                 </button> -->
+                </div>
             </div>
         </div>
+
 
 
         <!-- <div *ngIf="buttonClicked"> -->
@@ -35,18 +39,17 @@
                 <div class="card-body justify-content-center align-items-center fade-in"
                     [ngClass]="{'bg-success': elem.change > 0}">
 
-                    <p style='float:left; width: 20%; border: solid 1px black; font-weight: bold; '>
+                    <p style='float:left; width: 20%;  font-weight: bold; '>
                         {{elem.name}}</p>
-                    <p style='float:left; width: 20%; border: solid 1px black; text-align: center; '>
+                    <p style='float:left; width: 20%;  text-align: center; '>
                         ${{elem.lastPrice}}</p>
-                    <p style='float:left; width: 20%; border: solid 1px black; text-align: center; '>
+                    <p style='float:left; width: 20%;  text-align: center; '>
                         ${{elem.change}}</p>
-                    <p style='float:left; width: 20%; border: solid 1px black; text-align: center;  '>
+                    <p style='float:left; width: 20%; text-align: center;  '>
                         {{elem.percentChange}}
                     </p>
                     <!-- <button class="btn btn-sm" style="background-color: transparent; border: solid 1px black;"> -->
-                    <i class="material-icons" style="border: solid 1px black;"
-                        (click)="removeFromHoldings(elem.name)">close</i>
+                    <i class="material-icons" (click)="removeFromHoldings(elem.name)">close</i>
                     <!-- </button> -->
 
                     <!-- <div class="container align-items-center" style="width: 100%;">

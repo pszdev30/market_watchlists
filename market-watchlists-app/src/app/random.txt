@@ -40,3 +40,22 @@
     // this.tickerElem.nativeElement.value = '';
     // this.typeElem.nativeElement.value = '';
     // this.sharesContractsElem.nativeElement.value = '';
+
+      // this.db.list('/Holdings').snapshotChanges().subscribe((holdings: any) => {
+      //   for (let i = 0; i < holdings.length; i++)
+      //     this.holdingsArr.push(holdings[i].payload.node_.value_)
+      //   this.triggerGetHoldings();
+      // })
+
+      
+  // setTicker(ticker: string) {
+  //   this.ticker = ticker;
+  // }
+
+  // setType(type: string) {
+  //   this.type = type;
+  // }
+
+  // setNumOfSharesContracts(num: string) {
+  //   this.numOfSharesContracts = num;
+  // }
