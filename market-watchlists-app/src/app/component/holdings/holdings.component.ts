@@ -27,6 +27,27 @@ export class HoldingsComponent implements OnInit {
         this.triggerGetHoldings();
       })
     })
+
+
+    this.transferService.getHoldingsObservable$.subscribe(() => {
+      this.results = []
+      for (var ticker of this.holdingsArr) {
+        this.api.getHoldings(ticker).subscribe((quote: any) => {
+          console.log(quote)
+          let ticker: Ticker = new Ticker();
+          ticker.name = quote.symbol;
+          ticker.lastPrice = quote.latestPrice;
+          ticker.change = quote.change;
+          ticker.percentChange = quote.changePercent;
+
+          if (ticker.change > 0) ticker.positive = true
+          else ticker.positive = false;
+
+          this.results.push(ticker)
+        });
+        // this.ngForArr.push(i++)
+      }
+    })
   }
 
 
@@ -48,29 +69,12 @@ export class HoldingsComponent implements OnInit {
     this.transferService.triggerRefresh(true)
   }
 
-  getHoldings() {
-    this.triggerRefresh()
-    this.reset();
+  // getHoldings() {
+  //   this.triggerRefresh()
+  //   this.reset();
 
-    this.transferService.getHoldingsObservable$.subscribe(() => {
-      this.results = []
-      for (let i = 0; i < this.holdingsArr.length; i++) {
-        this.api.getHoldings(this.holdingsArr[i]).subscribe((quote: any) => {
-          console.log(quote)
-          let ticker: Ticker = new Ticker();
-          ticker.name = quote.symbol;
-          ticker.lastPrice = quote.latestPrice;
-          ticker.change = quote.change;
-          ticker.percentChange = quote.changePercent;
 
-          if (ticker.change > 0) ticker.positive = true
-          else ticker.positive = false;
-
-          this.results.push(ticker)
-        });
-      }
-    });
-  }
+  // }
 
   setTicker($event: any) {
     this.ticker = $event;
