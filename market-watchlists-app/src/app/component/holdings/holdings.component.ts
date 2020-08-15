@@ -17,7 +17,7 @@ export class HoldingsComponent implements OnInit {
   constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService) { }
 
   ngOnInit() {
-    this.transferService.refreshClickedObservable$.subscribe(() => {
+    this.transferService.refreshHoldingsClickedObservable$.subscribe(() => {
       this.holdings = []
       this.db.database.ref('/Holdings').once('value').then((resp) => {
         for (const key in resp.val())
@@ -70,7 +70,7 @@ export class HoldingsComponent implements OnInit {
   }
 
   triggerRefresh() {
-    this.transferService.triggerRefresh(true)
+    this.transferService.triggerHoldingsRefresh(true)
   }
 
   setTicker($event: any) {

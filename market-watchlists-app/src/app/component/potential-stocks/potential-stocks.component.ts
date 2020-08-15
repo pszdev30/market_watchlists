@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Ticker } from 'src/app/objects/ticker';
 import { ApiService } from 'src/app/service/api.service';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { TransferService } from 'src/app/service/transfer.service';
 
 @Component({
   selector: 'app-potential-stocks',
@@ -8,103 +10,88 @@ import { ApiService } from 'src/app/service/api.service';
   styleUrls: ['./potential-stocks.component.scss']
 })
 export class PotentialStocksComponent implements OnInit {
-
-  ticker: string = '';
-  type: string = '';
-  numOfSharesContracts: string = '';
-  firstCount: number = 0;
-  newArr: any = [];
-  ngForArr: any = [];
+  ticker: string;
   results: any[] = [];
-  holdingsArr: string[] = ['LYFT']
-  buttonClicked: boolean = false;
+  potentialHoldings: string[] = []
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService) { }
 
   ngOnInit() {
-    // this.activatedRoute.data.subscribe(data => console.log(data))
-    // this.api.getHoldingsList('MSFT').subscribe(data => this.test = data)
+    this.transferService.refreshPotentialHoldingsClickedObservable$.subscribe(() => {
+      this.potentialHoldings = []
+      this.db.database.ref('/Potential Holdings').once('value').then((resp) => {
+        for (const key in resp.val())
+          this.potentialHoldings.push(resp.val()[key])
+        console.log(this.potentialHoldings)
+        this.triggerGetPotentialHoldings();
+      });
+    });
 
-    // let mySub: Subscription;
-    // mySub = interval(15000).subscribe((func => {
-    //   this.ngForArr = []
-    //   for (var ticker of this.holdingsArr) {
-    //     this.ngForArr = []
-    //     this.apiService.getTicker(ticker).then((quote) => {
-    //       let ticker: Ticker = new Ticker();
-    //       ticker.name = quote['Global Quote']['01. symbol'];
-    //       ticker.lastPrice = quote['Global Quote']['05. price'];
-    //       ticker.change = quote['Global Quote']['09. change']
-    //       ticker.percentChange = quote['Global Quote']['10. change percent']
-    //       this.results.push(ticker)
-    //       for (let i = 0; i < this.results.length; i++)
-    //         this.ngForArr.push(i)
-    //     });
-    //   };
 
-    // }));
-    // console.log(this.results);
+    this.transferService.getPotentialHoldingsObservable$.subscribe(() => {
+      this.results = []
+      for (var ticker of this.potentialHoldings) {
+        this.api.getPotentialHoldings(ticker).subscribe((quote: any) => {
+          console.log(quote)
+          let ticker: Ticker = new Ticker();
+          ticker.name = quote.symbol;
+          ticker.lastPrice = quote.latestPrice;
+          ticker.change = quote.change;
+          ticker.percentChange = quote.changePercent;
 
-  }
+          if (ticker.change > 0) ticker.positive = true
+          else ticker.positive = false;
 
-  addToHoldingsArr(ticker: string) {
-    this.holdingsArr.push(ticker)
-  }
-
-  deleteFromHoldingsArr(ticker: string) {
-    this.holdingsArr = this.holdingsArr.filter(item => item !== ticker);
-    console.log(this.holdingsArr)
-  }
-
-  getHoldingsList() {
-    // this.reset();
-    // let i = 0;
-    // for (var ticker of this.holdingsArr) {
-    //   this.api.getHoldingsList(ticker).subscribe((quote) => {
-    //     console.log(quote)
-    //     let ticker: Ticker = new Ticker();
-    //     ticker.name = quote['Global Quote']['01. symbol'];
-    //     ticker.lastPrice = Number(quote['Global Quote']['05. price']);
-    //     ticker.change = Number(quote['Global Quote']['09. change'])
-    //     ticker.numChange = Number(quote['Global Quote']['09. change'])
-
-    //     if (ticker.numChange > 0) ticker.positive = true
-    //     else ticker.positive = false;
-
-    //     ticker.percentChange = quote['Global Quote']['10. change percent']
-
-    //     this.results.push(ticker)
-    //   });
-    //   this.ngForArr.push(i++)
-    // }
+          this.results.push(ticker)
+        });
+      }
+    });
   }
 
 
-  private reset() {
-    this.results = [];
-    this.ngForArr = [];
-    this.buttonClicked = false;
+  triggerGetPotentialHoldings() {
+    this.transferService.triggerGetPotentialHoldings(true);
   }
 
-  setTicker(ticker: string) {
-    this.ticker = ticker;
+  addToPotentialHoldings(ticker: string) {
+    this.db.database.ref('/Potential Holdings').child(ticker).set(ticker)
+    this.triggerRefresh();
   }
 
-  setType(type: string) {
-    this.type = type;
+  removeFromPotentialHoldings(ticker: string) {
+    this.db.database.ref('/Potential Holdings').child(ticker).remove()
+    this.triggerRefresh();
   }
 
-  setNumOfSharesContracts(num: string) {
-    this.numOfSharesContracts = num;
+  removeAllPotentialHoldings() {
+    for (var holding of this.potentialHoldings)
+      this.db.database.ref('/Potential Holdings').child(holding).remove()
+    this.triggerRefresh();
   }
 
-  resetAddToHoldingsModal() {
-    // this.tickerElem.nativeElement.value = '';
-    // this.typeElem.nativeElement.value = '';
-    // this.sharesContractsElem.nativeElement.value = '';
+  triggerRefresh() {
+    this.transferService.triggerPotentialHoldingsRefresh(true)
+  }
+
+  setTicker($event: any) {
+    this.ticker = $event;
+    console.log(this.ticker)
+  }
+
+  resetModal() {
     this.ticker = '';
-    this.type = '';
-    this.numOfSharesContracts = '';
+  }
+
+  reset() {
+    this.potentialHoldings = []
+    this.results = [];
+  }
+
+
+  resetAddToPotentialHoldingsModal() {
+    this.ticker = '';
+    // this.type = '';
+    // this.numOfSharesContracts = '';
   }
 
 }

@@ -22,4 +22,8 @@ export class ApiService {
     return this.http.get(environment.IEX_BASE_URL + ticker + '/quote?token=' + environment.IEX_API_TOKEN)
   }
 
+  getPotentialHoldings(ticker: any) {
+    return this.http.get(environment.IEX_BASE_URL + ticker + '/quote?token=' + environment.IEX_API_TOKEN)
+  }
+
 }
