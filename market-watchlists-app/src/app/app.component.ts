@@ -34,6 +34,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.transferService.triggerHoldingsRefresh(true);
     this.transferService.triggerPotentialHoldingsRefresh(true);
+    this.transferService.triggerRandomRefresh(true);
   }
 
   // fetchStock(ticker: string) {

@@ -9,13 +9,19 @@ export class TransferService {
   refreshHoldingsClickedObservable$: Observable<any> = this.refreshHoldingsClickedSubject.asObservable();
 
   getHoldingsSubject: Subject<Boolean> = new Subject<Boolean>();
-  getHoldingsObservable$: Observable<any> = this.getHoldingsSubject.asObservable();
+  getHoldingsObservable$: Observable<Boolean> = this.getHoldingsSubject.asObservable();
 
   refreshPotentialHoldingsClickedSubject: Subject<Boolean> = new Subject<Boolean>();
-  refreshPotentialHoldingsClickedObservable$: Observable<any> = this.refreshPotentialHoldingsClickedSubject.asObservable();
+  refreshPotentialHoldingsClickedObservable$: Observable<Boolean> = this.refreshPotentialHoldingsClickedSubject.asObservable();
 
   getPotentialHoldingsSubject: Subject<Boolean> = new Subject<Boolean>();
-  getPotentialHoldingsObservable$: Observable<any> = this.getPotentialHoldingsSubject.asObservable();
+  getPotentialHoldingsObservable$: Observable<Boolean> = this.getPotentialHoldingsSubject.asObservable();
+
+  refreshRandomClickedSubject: Subject<Boolean> = new Subject<Boolean>();
+  refreshRandomClickedObservable$: Observable<any> = this.refreshRandomClickedSubject.asObservable();
+
+  getRandomSubject: Subject<Boolean> = new Subject<Boolean>();
+  getRandomObservable$: Observable<Boolean> = this.getRandomSubject.asObservable();
 
 
   constructor() { }
@@ -34,6 +40,14 @@ export class TransferService {
 
   triggerPotentialHoldingsRefresh(trigger: boolean) {
     this.refreshPotentialHoldingsClickedSubject.next(trigger);
+  }
+
+  triggerGetRandom(trigger: boolean) {
+    this.getRandomSubject.next(trigger);
+  }
+
+  triggerRandomRefresh(trigger: boolean) {
+    this.refreshRandomClickedSubject.next(trigger);
   }
 
 }

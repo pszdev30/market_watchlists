@@ -64,8 +64,8 @@ export class PotentialStocksComponent implements OnInit {
   }
 
   removeAllPotentialHoldings() {
-    for (var holding of this.potentialHoldings)
-      this.db.database.ref('/Potential Holdings').child(holding).remove()
+    for (var potentialHolding of this.potentialHoldings)
+      this.db.database.ref('/Potential Holdings').child(potentialHolding).remove()
     this.triggerRefresh();
   }
 
