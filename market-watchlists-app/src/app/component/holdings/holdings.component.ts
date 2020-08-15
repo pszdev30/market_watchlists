@@ -22,11 +22,12 @@ export class HoldingsComponent implements OnInit {
     this.transferService.refreshClickedObservable$.subscribe(() => {
       this.holdingsArr = []
       this.db.database.ref('/Holdings').once('value').then((resp) => {
-        console.log(resp.val())
-        for (const value in resp.val()) {
-          this.holdingsArr.push(value)
-          console.log(this.holdingsArr)
+        // console.log(resp.val())
+        for (const key in resp.val()) {
+          this.holdingsArr.push(resp.val()[key])
+          // console.log(this.holdingsArr)
         }
+        console.log(this.holdingsArr)
         this.triggerGetHoldings();
       })
       // this.db.list('/Holdings').snapshotChanges().subscribe((holdings: any) => {
@@ -55,12 +56,6 @@ export class HoldingsComponent implements OnInit {
           this.results.push(ticker)
         });
       }
-    })
-  }
-
-  test() {
-    this.db.database.ref('/Holdings').once('value').then((resp) => {
-      console.log(resp.val())
     })
   }
 
