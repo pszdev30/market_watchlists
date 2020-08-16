@@ -18,7 +18,7 @@ export class TransferService {
   getPotentialHoldingsObservable$: Observable<Boolean> = this.getPotentialHoldingsSubject.asObservable();
 
   refreshRandomClickedSubject: Subject<Boolean> = new Subject<Boolean>();
-  refreshRandomClickedObservable$: Observable<any> = this.refreshRandomClickedSubject.asObservable();
+  refreshRandomClickedObservable$: Observable<Boolean> = this.refreshRandomClickedSubject.asObservable();
 
   getRandomSubject: Subject<Boolean> = new Subject<Boolean>();
   getRandomObservable$: Observable<Boolean> = this.getRandomSubject.asObservable();

@@ -17,7 +17,7 @@ export class RandomComponent implements OnInit {
   constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService) { }
 
   ngOnInit() {
-    this.transferService.refreshHoldingsClickedObservable$.subscribe(() => {
+    this.transferService.refreshRandomClickedObservable$.subscribe(() => {
       this.random = []
       this.db.database.ref('/Random').once('value').then((resp) => {
         for (const key in resp.val())

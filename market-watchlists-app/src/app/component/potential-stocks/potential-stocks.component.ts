@@ -55,21 +55,21 @@ export class PotentialStocksComponent implements OnInit {
 
   addToPotentialHoldings(ticker: string) {
     this.db.database.ref('/Potential Holdings').child(ticker).set(ticker)
-    this.triggerRefresh();
+    this.triggerPotentialHoldingsRefresh();
   }
 
   removeFromPotentialHoldings(ticker: string) {
     this.db.database.ref('/Potential Holdings').child(ticker).remove()
-    this.triggerRefresh();
+    this.triggerPotentialHoldingsRefresh();
   }
 
   removeAllPotentialHoldings() {
     for (var potentialHolding of this.potentialHoldings)
       this.db.database.ref('/Potential Holdings').child(potentialHolding).remove()
-    this.triggerRefresh();
+    this.triggerPotentialHoldingsRefresh();
   }
 
-  triggerRefresh() {
+  triggerPotentialHoldingsRefresh() {
     this.transferService.triggerPotentialHoldingsRefresh(true)
   }
 
