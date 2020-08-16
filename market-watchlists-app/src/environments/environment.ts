@@ -5,9 +5,8 @@
 export const environment = {
   // scraper url
   // baseUrl: 'http://127.0.0.1:5000/',
-
-  alphaVantageBaseUrl: 'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=',
-  alphaVantageApiKey: 'FW50D45U6ICU4CHA',
+  // alphaVantageBaseUrl: 'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=',
+  // alphaVantageApiKey: 'FW50D45U6ICU4CHA',
   firebaseConfig: {
     apiKey: "AIzaSyBNIzgzMSAIYXI5TNY64NIIcusy5dUtfLY",
     authDomain: "stock-market-watchlists.firebaseapp.com",
