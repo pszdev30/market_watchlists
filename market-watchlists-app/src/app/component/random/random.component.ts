@@ -22,7 +22,7 @@ export class RandomComponent implements OnInit {
       this.db.database.ref('/Random').once('value').then((resp) => {
         for (const key in resp.val())
           this.random.push(resp.val()[key])
-        console.log(this.random)
+        // console.log(this.random)
         this.triggerGetRandom();
       });
     });
@@ -32,7 +32,7 @@ export class RandomComponent implements OnInit {
       this.results = []
       for (var ticker of this.random) {
         this.api.getRandom(ticker).subscribe((quote: any) => {
-          console.log(quote)
+          // console.log(quote)
           let ticker: Ticker = new Ticker();
           ticker.name = quote.symbol;
           ticker.lastPrice = quote.latestPrice;
@@ -74,7 +74,6 @@ export class RandomComponent implements OnInit {
 
   setTicker($event: any) {
     this.ticker = $event;
-    console.log(this.ticker)
   }
 
   resetModal() {

@@ -22,7 +22,7 @@ export class HoldingsComponent implements OnInit {
       this.db.database.ref('/Holdings').once('value').then((resp) => {
         for (const key in resp.val())
           this.holdings.push(resp.val()[key])
-        console.log(this.holdings)
+        // console.log(this.holdings)
         this.triggerGetHoldings();
       });
     });
@@ -32,7 +32,7 @@ export class HoldingsComponent implements OnInit {
       this.results = []
       for (var ticker of this.holdings) {
         this.api.getHoldings(ticker).subscribe((quote: any) => {
-          console.log(quote)
+          // console.log(quote)
           let ticker: Ticker = new Ticker();
           ticker.name = quote.symbol;
           ticker.lastPrice = quote.latestPrice;
@@ -75,7 +75,6 @@ export class HoldingsComponent implements OnInit {
 
   setTicker($event: any) {
     this.ticker = $event;
-    console.log(this.ticker)
   }
 
   resetModal() {

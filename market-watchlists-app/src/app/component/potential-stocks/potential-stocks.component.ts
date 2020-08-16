@@ -22,7 +22,7 @@ export class PotentialStocksComponent implements OnInit {
       this.db.database.ref('/Potential Holdings').once('value').then((resp) => {
         for (const key in resp.val())
           this.potentialHoldings.push(resp.val()[key])
-        console.log(this.potentialHoldings)
+        // console.log(this.potentialHoldings)
         this.triggerGetPotentialHoldings();
       });
     });
@@ -32,7 +32,7 @@ export class PotentialStocksComponent implements OnInit {
       this.results = []
       for (var ticker of this.potentialHoldings) {
         this.api.getPotentialHoldings(ticker).subscribe((quote: any) => {
-          console.log(quote)
+          // console.log(quote)
           let ticker: Ticker = new Ticker();
           ticker.name = quote.symbol;
           ticker.lastPrice = quote.latestPrice;
@@ -75,7 +75,6 @@ export class PotentialStocksComponent implements OnInit {
 
   setTicker($event: any) {
     this.ticker = $event;
-    console.log(this.ticker)
   }
 
   resetModal() {
