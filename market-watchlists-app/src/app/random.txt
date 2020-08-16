@@ -59,3 +59,5 @@
   // setNumOfSharesContracts(num: string) {
   //   this.numOfSharesContracts = num;
   // }
+
+   [ngClass]="{'bg-success': elem.change > 0}"
