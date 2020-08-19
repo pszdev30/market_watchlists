@@ -1,8 +1,10 @@
+import { MatDivider } from '@angular/material/divider';
 import { Component, OnInit } from '@angular/core';
 import { Ticker } from 'src/app/objects/ticker';
 import { ApiService } from 'src/app/service/api.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { TransferService } from 'src/app/service/transfer.service';
+
 
 @Component({
   selector: 'app-random',
@@ -35,9 +37,9 @@ export class RandomComponent implements OnInit {
           // console.log(quote)
           let ticker: Ticker = new Ticker();
           ticker.name = quote.symbol;
-          ticker.lastPrice = quote.latestPrice;
-          ticker.change = quote.change;
-          ticker.percentChange = quote.changePercent;
+          ticker.lastPrice = quote.latestPrice.toFixed(2);
+          ticker.change = quote.change.toFixed(2);
+          ticker.percentChange = quote.changePercent.toFixed(2);
 
           if (ticker.change > 0) ticker.positive = true
           else ticker.positive = false;

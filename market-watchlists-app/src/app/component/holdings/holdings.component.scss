@@ -1,27 +1,16 @@
 @import "src/assets/variables";
 
-// .class2 {
-//   width: 33.33%;
-//   height: 90%;
-//   position: absolute;
-//   display: inline-block;
-//   border: solid black .5px;
-//   border-top: none;
-//   border-bottom: none;
-//   border-radius: 7.5px;
-// }
-
 .container-style {
   height: 90%; 
   position: absolute; 
   width: 33.33%; 
   float: left; 
-  // border: 1px solid whitesmoke; 
+  border: 2px solid whitesmoke; 
   // border-top: none;
   border-radius: 20px;
   text-align: center;
   overflow-y: scroll;
-  scrollbar-color: #303030;
+  // scrollbar-color: #303030;
 }
 
 .header-div {
@@ -31,15 +20,34 @@
 
 .header {
   text-align: center;
-  color: $default-font-color;
-  font: $font-regular;
-  font-weight: $font-weight-bold;
+  // color: $default-font-color;
+  // font: $font-regular;
+  // font-weight: $font-weight-bold;
   margin-top: 1%;
 }
 
+.mdl-card {
+  min-height: 0;
+}
+
+.green {
+  background-color:#49ac5f;
+}
+
+.red {
+  background-color: #f44336;
+}
+
 button {
-  background-color: transparent;
-  border: none;
+  margin-right: 10px;
+}
+
+modal-backdrop {
+  position: inherit;
+}
+
+.modal-backdrop {
+  position: inherit;
 }
 
 .button-suite {
@@ -47,14 +55,14 @@ button {
   margin-bottom: 1%;
 }
 
-i {
-  color: whitesmoke;
-}
+// i {
+//   // color: whitesmoke;
+// }
 
-.modal-styling {
-  background-color: #303030;
-  color: whitesmoke;
-}
+// .modal-styling {
+//   // background-color: #303030;
+//   // color: whitesmoke;
+// }
 
 .card-color-green {
     background-color: #4CAF50;
@@ -120,12 +128,12 @@ height: 15px;
 ::-webkit-scrollbar-track-piece  {
 background-color: #232526;
 background-color: #444;
-background-color: whitesmoke;
+background-color: white;
 }
 
 ::-webkit-scrollbar-thumb:vertical {
 height: 10px;
 background-color: #303030;
 background-color: whitesmoke;
-background-color: #444;
+background-color: #9e9e9e;
 }

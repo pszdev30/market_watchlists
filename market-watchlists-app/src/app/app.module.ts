@@ -13,7 +13,11 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
-
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button'
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,12 @@ import { environment } from 'src/environments/environment';
     BrowserAnimationsModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    MatDividerModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

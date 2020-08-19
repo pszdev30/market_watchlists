@@ -35,9 +35,9 @@ export class PotentialStocksComponent implements OnInit {
           // console.log(quote)
           let ticker: Ticker = new Ticker();
           ticker.name = quote.symbol;
-          ticker.lastPrice = quote.latestPrice;
-          ticker.change = quote.change;
-          ticker.percentChange = quote.changePercent;
+          ticker.lastPrice = quote.latestPrice.toFixed(2);
+          ticker.change = quote.change.toFixed(2);
+          ticker.percentChange = quote.changePercent.toFixed(2);
 
           if (ticker.change > 0) ticker.positive = true
           else ticker.positive = false;

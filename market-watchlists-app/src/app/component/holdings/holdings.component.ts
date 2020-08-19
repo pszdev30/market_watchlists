@@ -3,6 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
 import { Ticker } from 'src/app/objects/ticker';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { MatCard } from "@angular/material/card";
+import { MatButton } from "@angular/material/button";
+import { MatInput } from "@angular/material/input";
+import { MatDialog } from "@angular/material/dialog";
 
 @Component({
   selector: 'app-holdings',
@@ -22,7 +26,6 @@ export class HoldingsComponent implements OnInit {
       this.db.database.ref('/Holdings').once('value').then((resp) => {
         for (const key in resp.val())
           this.holdings.push(resp.val()[key])
-        // console.log(this.holdings)
         this.triggerGetHoldings();
       });
     });
@@ -32,12 +35,11 @@ export class HoldingsComponent implements OnInit {
       this.results = []
       for (var ticker of this.holdings) {
         this.api.getHoldings(ticker).subscribe((quote: any) => {
-          // console.log(quote)
           let ticker: Ticker = new Ticker();
           ticker.name = quote.symbol;
-          ticker.lastPrice = quote.latestPrice;
-          ticker.change = quote.change;
-          ticker.percentChange = quote.changePercent;
+          ticker.lastPrice = quote.latestPrice.toFixed(2);
+          ticker.change = quote.change.toFixed(2);
+          ticker.percentChange = quote.changePercent.toFixed(2);
 
           if (ticker.change > 0) ticker.positive = true
           else ticker.positive = false;

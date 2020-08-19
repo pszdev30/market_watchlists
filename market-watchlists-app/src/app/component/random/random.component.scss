@@ -16,7 +16,7 @@
   position: absolute; 
   width: 33.33%; 
   float: left; 
-  // border: 1px solid whitesmoke; 
+  border: 2px solid whitesmoke; 
   overflow-y: scroll;
   // border-top: none;
   border-radius: 20px;
@@ -30,16 +30,12 @@
 
 .header {
   text-align: center;
-  color: $default-font-color;
-  font: $font-regular;
-  font-weight: $font-weight-bold;
   margin-top: 1%;
 
 }
 
 button {
-  background-color: transparent;
-  border: none;
+  margin-right: 10px;
 }
 
 .button-suite {
@@ -47,21 +43,17 @@ button {
   margin-bottom: 1%;
 }
 
-i {
-  color: whitesmoke;
+
+.mdl-card {
+  min-height: 0;
 }
 
-.modal-styling {
-  background-color: #303030;
-  color: whitesmoke;
+.green {
+  background-color:#49ac5f;
 }
 
-.card-color-green {
-    background-color: #4CAF50;
-}
-
-.card-color-red {
-    background-color: #f44336;
+.red {
+  background-color: #f44336;
 }
 
 .fade-in-headers {
@@ -119,11 +111,13 @@ height: 15px;
 
 ::-webkit-scrollbar-track-piece  {
 background-color: #232526;
-background-color: #444
+background-color: #444;
+background-color: white;
 }
 
 ::-webkit-scrollbar-thumb:vertical {
 height: 10px;
 background-color: #303030;
 background-color: whitesmoke;
+background-color: #9e9e9e;
 }

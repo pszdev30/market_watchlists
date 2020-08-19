@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fade-in-navbar">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light fade-in-navbar">
   <a class="navbar-brand" href="#">Stock Market Watchlists</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03"
     aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,7 +17,41 @@
       </li>
     </ul>
   </div>
-</nav>
+</nav> -->
+
+
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" style="margin-bottom: 3%;">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Stock Market Watchlists</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Stock Market Watchlists</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            <!-- Your content goes here -->
+            <app-potential-stocks></app-potential-stocks>
+
+            <app-holdings></app-holdings>
+
+            <app-random></app-random>
+        </div>
+    </main>
+</div>
+
 
 <!-- Modal -->
 <!-- <div class="modal fade" id="addStockToHoldings" data-backdrop="static" data-keyboard="false" tabindex="-1"
