@@ -21,7 +21,7 @@
                     <button
                         class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored fade-in-refresh"
                         data-toggle="modal" data-target="#addToHoldings">
-                        <i class="material-icons" (click)="resetModal()">add</i>
+                        <i class="material-icons" (click)="openDialog(); resetModal();">add</i>
                     </button>
 
                     <button
@@ -31,7 +31,7 @@
 
                     <button
                         class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored fade-in-refresh">
-                        <i class="material-icons" (click)="removeAllPotentialHoldings()">delete</i>
+                        <i class="material-icons" (click)="removeAllPotentialHoldings()">delete_sweep</i>
                     </button>
                 </div>
             </div>
@@ -74,7 +74,7 @@
 
 
         <div *ngFor="let elem of results">
-            <mat-card style="margin-bottom: 5%; padding: 0;">
+            <mat-card class="fade-in" style="margin-bottom: 5%; padding: 0;">
                 <div style="display: flex; flex-direction: row; justify-content: center;"
                     [ngClass]="{'green': elem.positive === true, 'red': elem.positive === false }">
                     <mat-card-title
@@ -161,7 +161,7 @@
 
 
     <!-- Add to Holdings Modal -->
-    <div class="modal fade" id="addToPotentialHoldings" tabindex="-1" aria-labelledby="addToPotentialHoldingsLabel"
+    <!-- <div class="modal fade" id="addToPotentialHoldings" tabindex="-1" aria-labelledby="addToPotentialHoldingsLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal-styling">
@@ -189,7 +189,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 

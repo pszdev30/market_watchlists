@@ -3,6 +3,8 @@ import { Ticker } from 'src/app/objects/ticker';
 import { ApiService } from 'src/app/service/api.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { TransferService } from 'src/app/service/transfer.service';
+import { MatDialog } from "@angular/material/dialog";
+import { DialogComponent } from 'src/app/dialog/dialog.component';
 
 @Component({
   selector: 'app-potential-stocks',
@@ -14,7 +16,7 @@ export class PotentialStocksComponent implements OnInit {
   results: any[] = [];
   potentialHoldings: string[] = []
 
-  constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService) { }
+  constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.transferService.refreshPotentialHoldingsClickedObservable$.subscribe(() => {
@@ -45,6 +47,17 @@ export class PotentialStocksComponent implements OnInit {
           this.results.push(ticker)
         });
       }
+    });
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent, {});
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != undefined)
+        this.addToPotentialHoldings(result);
+      else
+        return;
     });
   }
 

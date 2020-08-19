@@ -17,7 +17,7 @@
                     <button
                         class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored fade-in-refresh"
                         data-toggle="modal" data-target="#addToHoldings">
-                        <i class="material-icons " (click)="resetModal()">add</i>
+                        <i class="material-icons " (click)="openDialog(); resetModal();">add</i>
                     </button>
 
                     <button
@@ -27,23 +27,8 @@
 
                     <button
                         class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored fade-in-refresh">
-                        <i class="material-icons" (click)="removeAllRandom()">delete</i>
+                        <i class="material-icons" (click)="removeAllRandom()">delete_sweep</i>
                     </button>
-
-
-                    <!-- <button class="fade-in-refresh" data-toggle="modal" data-target="#addToRandom"
-                        (click)="resetModal()">
-                        <i class="material-icons">add_circle</i>
-                    </button>
-                    <button class="fade-in-refresh">
-                        <i class="material-icons" (click)="triggerRefresh()">refresh</i>
-                    </button>
-                    <button class="fade-in-refresh">
-                        <i class="material-icons" (click)="removeAllRandom()">delete</i>
-                    </button> -->
-                    <!-- <button (click)="test()">
-                    <i class="material-icons">backup</i>
-                </button> -->
                 </div>
             </div>
         </div>
@@ -68,75 +53,75 @@
 
 
 
+
+        <style>
+            .demo-card-wide.mdl-card {
+                width: 512px;
+            }
+
+            .demo-card-wide>.mdl-card__title {
+                color: #fff;
+                height: 176px;
+                background: url('../assets/demos/welcome_card.jpg') center / cover;
+            }
+
+            .demo-card-wide>.mdl-card__menu {
+                color: #fff;
+            }
+        </style>
+
+
+        <!-- Wide card with share menu button -->
+        <style>
+            .demo-card-wide.mdl-card {
+                width: 512px;
+            }
+
+            .demo-card-wide>.mdl-card__title {
+                color: #fff;
+                height: 176px;
+                background: url('../assets/demos/welcome_card.jpg') center / cover;
+            }
+
+            .demo-card-wide>.mdl-card__menu {
+                color: #fff;
+            }
+        </style>
+
+
         <div *ngFor="let elem of results">
-            <style>
-                .demo-card-wide.mdl-card {
-                    width: 512px;
-                }
+            <mat-card class="fade-in" style="margin-bottom: 5%; padding: 0;">
+                <div style="display: flex; flex-direction: row; justify-content: center;"
+                    [ngClass]="{'green': elem.positive === true, 'red': elem.positive === false }">
+                    <mat-card-title
+                        style="padding-top: 2%; padding-bottom: 2%; width: 100%; color: white; font-size: x-large;">
+                        {{elem.name}}
+                    </mat-card-title>
+                </div>
 
-                .demo-card-wide>.mdl-card__title {
-                    color: #fff;
-                    height: 176px;
-                    background: url('../assets/demos/welcome_card.jpg') center / cover;
-                }
+                <mat-card-content style="margin-top: 2%; margin-right: 20px;">
+                    <!-- <br> -->
+                    <div style="display: flex; flex-direction: row; justify-content: space-around;">
+                        <p style="font-size: large;">
+                            ${{elem.lastPrice}}</p>
+                        <p style="font-size: large;">
+                            ${{elem.change}}</p>
+                        <p style="font-size: large;">
+                            {{elem.percentChange}}%
+                        </p>
 
-                .demo-card-wide>.mdl-card__menu {
-                    color: #fff;
-                }
-            </style>
+                        <i class="material-icons" (click)="removeFromRandom(elem.name)"
+                            style="justify-content: flex-end; float: right;">remove_circle_outline</i>
 
-
-            <!-- Wide card with share menu button -->
-            <style>
-                .demo-card-wide.mdl-card {
-                    width: 512px;
-                }
-
-                .demo-card-wide>.mdl-card__title {
-                    color: #fff;
-                    height: 176px;
-                    background: url('../assets/demos/welcome_card.jpg') center / cover;
-                }
-
-                .demo-card-wide>.mdl-card__menu {
-                    color: #fff;
-                }
-            </style>
-
-
-            <div *ngFor="let elem of results">
-                <mat-card style="margin-bottom: 5%; padding: 0;">
-                    <div style="display: flex; flex-direction: row; justify-content: center;"
-                        [ngClass]="{'green': elem.positive === true, 'red': elem.positive === false }">
-                        <mat-card-title
-                            style="padding-top: 2%; padding-bottom: 2%; width: 100%; color: white; font-size: x-large;">
-                            {{elem.name}}
-                        </mat-card-title>
                     </div>
 
-                    <mat-card-content style="margin-top: 2%; margin-right: 20px;">
-                        <!-- <br> -->
-                        <div style="display: flex; flex-direction: row; justify-content: space-around;">
-                            <p style="font-size: large;">
-                                ${{elem.lastPrice}}</p>
-                            <p style="font-size: large;">
-                                ${{elem.change}}</p>
-                            <p style="font-size: large;">
-                                {{elem.percentChange}}%
-                            </p>
+                </mat-card-content>
 
-                            <i class="material-icons" (click)="removeFromRandom(elem.name)"
-                                style="justify-content: flex-end; float: right;">remove_circle_outline</i>
-
-                        </div>
-
-                    </mat-card-content>
-
-                </mat-card>
-            </div>
+            </mat-card>
+        </div>
 
 
-            <!-- <div *ngFor="let elem of results">
+        <!-- <div *ngFor="let elem of results">
             <div class="card text-white fade-in" style="margin-bottom: 3%; height: 100%; width: 100%;"
                 [ngClass]="{'bg-success': elem.positive === true }" [ngClass]="{'bg-danger': elem.positive === false }">
                 <div class="card-body justify-content-center align-items-center fade-in"
@@ -154,39 +139,37 @@
                     <i class="material-icons" (click)="removeFromRandom(elem.name)">close</i>
                 </div>
             </div>
-        </div>
     </div>
 </div> -->
 
 
 
-            <!-- Add to Random Modal -->
-            <div class="modal fade" id="addToRandom" tabindex="-1" aria-labelledby="addToRandomLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content modal-styling">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Add to Random Stocks</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label class="col-form-label" for="inputDefault">Enter a ticker: </label>
-                                    <input type="text" class="form-control" placeholder="Enter a ticker"
-                                        id="tickerToAdd" [(ngModel)]="ticker" [ngModelOptions]="{standalone: true}"
-                                        (input)="setTicker($event.target.value)">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal"
-                                (click)="resetModal()">Close</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"
-                                (click)="addToRandom(ticker)">Add</button>
-                        </div>
+        <!-- Add to Random Modal -->
+        <!-- <div class="modal fade" id="addToRandom" tabindex="-1" aria-labelledby="addToRandomLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-styling">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add to Random Stocks</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label class="col-form-label" for="inputDefault">Enter a ticker: </label>
+                                <input type="text" class="form-control" placeholder="Enter a ticker" id="tickerToAdd"
+                                    [(ngModel)]="ticker" [ngModelOptions]="{standalone: true}"
+                                    (input)="setTicker($event.target.value)">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"
+                            (click)="resetModal()">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                            (click)="addToRandom(ticker)">Add</button>
                     </div>
                 </div>
             </div>
+        </div> -->

@@ -18,6 +18,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button'
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     HoldingsComponent,
     PotentialStocksComponent,
     RandomComponent,
-    NavbarComponent
+    NavbarComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,

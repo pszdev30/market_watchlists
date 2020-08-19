@@ -3,10 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
 import { Ticker } from 'src/app/objects/ticker';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { MatCard } from "@angular/material/card";
-import { MatButton } from "@angular/material/button";
-import { MatInput } from "@angular/material/input";
 import { MatDialog } from "@angular/material/dialog";
+import { DialogComponent } from 'src/app/dialog/dialog.component';
 
 @Component({
   selector: 'app-holdings',
@@ -18,7 +16,7 @@ export class HoldingsComponent implements OnInit {
   results: any[] = [];
   holdings: string[] = []
 
-  constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService) { }
+  constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.transferService.refreshHoldingsClickedObservable$.subscribe(() => {
@@ -50,6 +48,16 @@ export class HoldingsComponent implements OnInit {
     });
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent, {});
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != undefined)
+        this.addToHoldings(result);
+      else
+        return;
+    });
+  }
 
   triggerGetHoldings() {
     this.transferService.triggerGetHoldings(true);

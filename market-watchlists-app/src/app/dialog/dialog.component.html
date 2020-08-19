@@ -1,0 +1,15 @@
+<h3 mat-dialog-title>Add a Ticker</h3>
+
+<mat-dialog-content>
+    <form>
+        <mat-form-field>
+            <mat-label>Enter a ticker</mat-label>
+            <input matInput placeholder="Ex. MSFT" (input)="setInput($event.target.value)">
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button (click)="close()">Close</button>
+    <button mat-raised-button (click)="add()">Add</button>
+</mat-dialog-actions>

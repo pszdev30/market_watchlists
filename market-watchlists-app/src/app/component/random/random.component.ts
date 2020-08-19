@@ -1,9 +1,10 @@
-import { MatDivider } from '@angular/material/divider';
 import { Component, OnInit } from '@angular/core';
 import { Ticker } from 'src/app/objects/ticker';
 import { ApiService } from 'src/app/service/api.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { TransferService } from 'src/app/service/transfer.service';
+import { DialogComponent } from 'src/app/dialog/dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class RandomComponent implements OnInit {
   results: any[] = [];
   random: string[] = []
 
-  constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService) { }
+  constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.transferService.refreshRandomClickedObservable$.subscribe(() => {
@@ -24,7 +25,6 @@ export class RandomComponent implements OnInit {
       this.db.database.ref('/Random').once('value').then((resp) => {
         for (const key in resp.val())
           this.random.push(resp.val()[key])
-        // console.log(this.random)
         this.triggerGetRandom();
       });
     });
@@ -34,7 +34,6 @@ export class RandomComponent implements OnInit {
       this.results = []
       for (var ticker of this.random) {
         this.api.getRandom(ticker).subscribe((quote: any) => {
-          // console.log(quote)
           let ticker: Ticker = new Ticker();
           ticker.name = quote.symbol;
           ticker.lastPrice = quote.latestPrice.toFixed(2);
@@ -47,6 +46,17 @@ export class RandomComponent implements OnInit {
           this.results.push(ticker)
         });
       }
+    });
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent, {});
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != undefined)
+        this.addToRandom(result);
+      else
+        return;
     });
   }
 
