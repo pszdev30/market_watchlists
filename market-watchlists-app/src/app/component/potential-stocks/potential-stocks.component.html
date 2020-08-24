@@ -1,5 +1,3 @@
-<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.grey-deep_purple.min.css">
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
@@ -55,7 +53,6 @@
         </style>
 
 
-        <!-- Wide card with share menu button -->
         <style>
             .demo-card-wide.mdl-card {
                 width: 512px;
@@ -102,133 +99,3 @@
                 </mat-card-content>
 
             </mat-card>
-
-
-            <!-- <div *ngIf="buttonClicked"> -->
-            <!-- <div *ngFor="let elem of results">
-            <div class="card text-white fade-in" style="margin-bottom: 3%; height: 100%; width: 100%;"
-                [ngClass]="{'bg-success': elem.positive === true }" [ngClass]="{'bg-danger': elem.positive === false }">
-                <div class="card-body justify-content-center align-items-center fade-in"
-                    [ngClass]="{'bg-success': elem.change > 0}">
-
-                    <p style='float:left; width: 20%;  font-weight: bold; '>
-                        {{elem.name}}</p>
-                    <p style='float:left; width: 20%;  text-align: center; '>
-                        ${{elem.lastPrice}}</p>
-                    <p style='float:left; width: 20%;  text-align: center; '>
-                        ${{elem.change}}</p>
-                    <p style='float:left; width: 20%; text-align: center;  '>
-                        {{elem.percentChange}}
-                    </p> -->
-            <!-- <button class="btn btn-sm" style="background-color: transparent; border: solid 1px black;"> -->
-            <!-- <i class="material-icons" (click)="removeFromPotentialHoldings(elem.name)">close</i> -->
-            <!-- </button> -->
-
-            <!-- <div class="container align-items-center" style="width: 100%;">
-                            <div class="row justify-content-center align-items-center">
-                                <div class="col-2" style="float: left; width: 20%;">
-                                    {{results[i].name}}
-                                </div>
-                                <div class="col-2" style="float: left; width: 20%;">
-                                    ${{results[i].lastPrice}}
-                                </div>
-                                <div class="col-1" style="float: left; width: 20%;">
-                                    ${{results[i].change}}
-                                </div>
-                                <div class="col-2" style="float: left; width: 20%;">
-                                    {{results[i].percentChange}}
-                                </div> -->
-            <!-- <div class="col-1" style="width: 20%; "> -->
-            <!-- <button class="btn btn-sm" style="background-color: transparent; border: none;"> -->
-            <!-- <i class="material-icons" style="float: inline-end;">delete</i> -->
-            <!-- </button> -->
-            <!-- </div> -->
-            <!-- </div>
-                        </div> -->
-            <!-- </div> -->
-            <!--  -->
-            <!-- 
-            </div>
-        </div> -->
-            <!-- </div> -->
-        </div>
-    </div>
-
-
-
-
-
-
-
-    <!-- Add to Holdings Modal -->
-    <!-- <div class="modal fade" id="addToPotentialHoldings" tabindex="-1" aria-labelledby="addToPotentialHoldingsLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content modal-styling">
-                <div class="modal-header">
-                    <h5 class="modal-title">Add to Potential Stocks</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label class="col-form-label" for="inputDefault">Enter a ticker: </label>
-                            <input type="text" class="form-control" placeholder="Enter a ticker" id="tickerToAdd"
-                                [(ngModel)]="ticker" [ngModelOptions]="{standalone: true}"
-                                (input)="setTicker($event.target.value)">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal"
-                        (click)="resetModal()">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal"
-                        (click)="addToPotentialHoldings(ticker)">Add</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-
-
-    <!-- <p
-                            style='float:left; padding-top: 1%; margin-right:2%; width: 20%; text-align: left; font-weight: bold; height: 100%;'>
-                            {{results[i].name}}</p>
-                        <p
-                            style='float:left; padding: 1%; margin-right:2%; width: 20%; text-align: center; vertical-align: middle; height: 100%;'>
-                            ${{results[i].lastPrice}}</p>
-                        <p
-                            style='float:left;  padding-top: 1%; margin-right:2%; width: 20%; text-align: center; height: 100%;'>
-                            ${{results[i].change}}</p>
-                        <p
-                            style='float:left; padding-top: 1%; margin-right:2%; width: 20%; text-align: center; height: 100%;'>
-                            {{results[i].percentChange}}
-                        </p>
-                        <button class="btn btn-sm" style="background-color: transparent; border: none; height: 100%;">
-                            <i class="material-icons">delete</i>
-                        </button> -->
-
-
-    <!-- <div style='margin-top:1%;'>
-        <h4 style="display:inline; vertical-align: middle !important; color: #fff;" class="headings fade-in-headers">Current Holdings
-        </h4>
-    </div>
-    <div style='margin-top:1%; margin-bottom:1%;'>
-        <div class="container">
-            <button class="btn btn-sm fade-in-refresh" style="background-color: transparent; border: none">
-                <i class="material-icons">add_circle</i>
-            </button>
-            <button class="btn btn-sm fade-in-refresh" style="background-color: transparent; border: none;"
-                (click)="getHoldingsList(); buttonClicked = true">
-                <i class="material-icons">refresh</i>
-            </button>
-            <button class="btn btn-light fade-in-refresh" style="background-color: transparent; border: none;"
-                (click)="getHoldingsList(); buttonClicked = true">
-                <i class="material-icons">delete</i>
-            </button>
-        </div> -->
-
-    <!-- </div> -->
-    <!-- <div> -->

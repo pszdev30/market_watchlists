@@ -5,6 +5,7 @@ import { Ticker } from 'src/app/objects/ticker';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { MatDialog } from "@angular/material/dialog";
 import { DialogComponent } from 'src/app/dialog/dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-holdings',
@@ -14,9 +15,9 @@ import { DialogComponent } from 'src/app/dialog/dialog.component';
 export class HoldingsComponent implements OnInit {
   ticker: string;
   results: any[] = [];
-  holdings: string[] = []
+  holdings: string[] = [];
 
-  constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService, public dialog: MatDialog) { }
+  constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService, public dialog: MatDialog, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.transferService.refreshHoldingsClickedObservable$.subscribe(() => {
@@ -43,6 +44,7 @@ export class HoldingsComponent implements OnInit {
           else ticker.positive = false;
 
           this.results.push(ticker)
+
         });
       }
     });
@@ -99,8 +101,6 @@ export class HoldingsComponent implements OnInit {
 
   resetAddToHoldingsModal() {
     this.ticker = '';
-    // this.type = '';
-    // this.numOfSharesContracts = '';
   }
 
 }

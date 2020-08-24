@@ -61,3 +61,227 @@
   // }
 
    [ngClass]="{'bg-success': elem.change > 0}"
+
+
+   <!-- <div class="demo-card mdl-card mdl-shadow--2dp"
+                style="width: 100%; height: 90px; line-height: 90px; margin-bottom: 5%;"
+                [ngClass]="{'green': elem.positive === true, 'red': elem.positive === false }">
+                <div class="mdl-card__supporting-text" style="color: white;">
+                    <br>
+                    <p style='float:left; width: 20%; font-weight: bold; vertical-align: middle; font-size: large;'>
+                        {{elem.name}}</p>
+                    <p style='float:left; width: 20%; font-weight: bold; text-align: center; '>
+                        ${{elem.lastPrice}}</p>
+                    <p id="change"
+                        style='float:left; font-weight: bold; width: 20%;  text-align: center; '>
+                        ${{elem.change}}</p>
+                    <span class="mdl-tooltip" for="change">
+                        <strong>Price Change</strong>
+                    </span>
+                    <p style='float:left; width: 20%; font-weight: bold; text-align: center; '>
+                        {{elem.percentChange}}
+                    </p> -->
+
+            <!-- <button
+                        class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored fade-in-refresh"
+                        style="margin-bottom: -5px;"> -->
+
+            <!-- </button> -->
+            <!-- </div> -->
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- <div *ngIf=" buttonClicked"> -->
+<!-- <div *ngFor="let elem of results">
+            <div class="card text-white fade-in" style="margin-bottom: 3%; height: 100%; width: 100%;"
+                [ngClass]="{'bg-success': elem.positive === true }" [ngClass]="{'bg-danger': elem.positive === false }">
+                <div class="card-body justify-content-center align-items-center fade-in"
+                    [ngClass]="{'bg-success': elem.change > 0}">
+                    <p style='float:left; width: 20%;  font-weight: bold; '>
+                        {{elem.name}}</p>
+                    <p style='float:left; width: 20%;  text-align: center; '>
+                        ${{elem.lastPrice}}</p>
+                    <p style='float:left; width: 20%;  text-align: center; '>
+                        ${{elem.change}}</p>
+                    <p style='float:left; width: 20%; text-align: center;  '>
+                        {{elem.percentChange}}
+                    </p> -->
+<!-- <button class="btn btn-sm" style="background-color: transparent; border: solid 1px black;"> -->
+<!-- <i class="material-icons" (click)="removeFromHoldings(elem.name)">close</i> -->
+<!-- </button> -->
+
+<!-- <div class="container align-items-center" style="width: 100%;">
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-2" style="float: left; width: 20%;">
+                                    {{results[i].name}}
+                                </div>
+                                <div class="col-2" style="float: left; width: 20%;">
+                                    ${{results[i].lastPrice}}
+                                </div>
+                                <div class="col-1" style="float: left; width: 20%;">
+                                    ${{results[i].change}}
+                                </div>
+                                <div class="col-2" style="float: left; width: 20%;">
+                                    {{results[i].percentChange}}
+                                </div> -->
+<!-- <div class="col-1" style="width: 20%; "> -->
+<!-- <button class="btn btn-sm" style="background-color: transparent; border: none;"> -->
+<!-- <i class="material-icons" style="float: inline-end;">delete</i> -->
+<!-- </button> -->
+<!-- </div> -->
+<!-- </div>
+                        </div> -->
+<!-- </div> -->
+<!--  -->
+
+<!-- </div>
+        </div> -->
+<!-- </div> -->
+
+
+
+
+
+<!-- Add to Holdings Modal -->
+<!-- <div class="modal fade" id="addToHoldings" tabindex="-1" aria-labelledby="addToHoldingsLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-styling">
+            <div class="modal-header">
+                <h5 class="modal-title">Add to Holdings</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label class="col-form-label" for="inputDefault">Enter a ticker: </label>
+                        <input type="text" class="form-control" placeholder="Enter a ticker" id="tickerToAdd"
+                            [(ngModel)]="ticker" [ngModelOptions]="{standalone: true}"
+                            (input)="setTicker($event.target.value)">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="resetModal()">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                    (click)="addToHoldings(ticker)">Add</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+<!-- <p
+                            style='float:left; padding-top: 1%; margin-right:2%; width: 20%; text-align: left; font-weight: bold; height: 100%;'>
+                            {{results[i].name}}</p>
+                        <p
+                            style='float:left; padding: 1%; margin-right:2%; width: 20%; text-align: center; vertical-align: middle; height: 100%;'>
+                            ${{results[i].lastPrice}}</p>
+                        <p
+                            style='float:left;  padding-top: 1%; margin-right:2%; width: 20%; text-align: center; height: 100%;'>
+                            ${{results[i].change}}</p>
+                        <p
+                            style='float:left; padding-top: 1%; margin-right:2%; width: 20%; text-align: center; height: 100%;'>
+                            {{results[i].percentChange}}
+                        </p>
+                        <button class="btn btn-sm" style="background-color: transparent; border: none; height: 100%;">
+                            <i class="material-icons">delete</i>
+                        </button> -->
+
+
+<!-- <div style='margin-top:1%;'>
+        <h4 style="display:inline; vertical-align: middle !important; color: #fff;" class="headings fade-in-headers">Current Holdings
+        </h4>
+    </div>
+    <div style='margin-top:1%; margin-bottom:1%;'>
+        <div class="container">
+            <button class="btn btn-sm fade-in-refresh" style="background-color: transparent; border: none">
+                <i class="material-icons">add_circle</i>
+            </button>
+            <button class="btn btn-sm fade-in-refresh" style="background-color: transparent; border: none;"
+                (click)="getHoldingsList(); buttonClicked = true">
+                <i class="material-icons">refresh</i>
+            </button>
+            <button class="btn btn-light fade-in-refresh" style="background-color: transparent; border: none;"
+                (click)="getHoldingsList(); buttonClicked = true">
+                <i class="material-icons">delete</i>
+            </button>
+        </div> -->
+
+<!-- </div> -->
+<!-- <div> -->
+
+  // fetchStockUrl: string = 'fetch_stock/';
+
+  // fetchStock(ticker: any) {
+  //   return this.http.get(environment.baseUrl + this.fetchStockUrl + ticker).toPromise();
+  // }
+
+  // getHoldingsList(ticker: any) {
+  //   return this.http.get(environment.alphaVantageBaseUrl + ticker + '&apikey=' + environment.alphaVantageApiKey)
+  // }
+
+  <!-- Modal -->
+<!-- <div class="modal fade" id="addStockToHoldings" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="addStockToHoldingsLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add Stock to Holdings</h5>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Ticker:</label>
+                        <input type="text" class="form-control" id="ticker" (input)="setTicker($event.target.value)">
+                    </div>
+                    <label style="margin-top: 5px; margin-right: 15px;">Stock or Options?</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="stock" id="stock" value="stock" required
+                            [checked]="type=='stock'" (click)="setType($event.target.value)">
+                        <label class="form-check-label" for="inlineRadioStock">Stock</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="options" id="options" value="options"
+                            required [checked]="type=='options'" (click)="setType($event.target.value)">
+                        <label class="form-check-label" for="inlineRadioOptions">Options</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Number of Shares/Contracts:</label>
+                        <input type="text" class="form-control" id="numOfSharesContracts"
+                            (input)="setNumOfSharesContracts($event.target.value)">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal"
+                    (click)="resetAddToHoldingsModal()">Close</button>
+                <button type="button" class="btn btn-primary"
+                    (click)="addToHoldingsArr(ticker); resetAddToHoldingsModal()" data-dismiss="modal">Add to
+                    Holdings
+
+                    List</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+.class1,
+.class2,
+.class3 {
+  width: 33.33%;
+  height: 90%;
+  position: absolute;
+  display: inline-block;
+  border: solid black .5px;
+  border-top: none;
+  border-bottom: none;
+  border-radius: 7.5px;
+}

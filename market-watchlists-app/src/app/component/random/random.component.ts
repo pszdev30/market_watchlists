@@ -15,7 +15,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class RandomComponent implements OnInit {
   ticker: string;
   results: any[] = [];
-  random: string[] = []
+  random: string[] = [];
 
   constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService, public dialog: MatDialog) { }
 

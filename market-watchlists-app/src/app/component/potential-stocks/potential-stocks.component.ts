@@ -14,7 +14,7 @@ import { DialogComponent } from 'src/app/dialog/dialog.component';
 export class PotentialStocksComponent implements OnInit {
   ticker: string;
   results: any[] = [];
-  potentialHoldings: string[] = []
+  potentialHoldings: string[] = [];
 
   constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService, public dialog: MatDialog) { }
 
@@ -24,7 +24,6 @@ export class PotentialStocksComponent implements OnInit {
       this.db.database.ref('/Potential Holdings').once('value').then((resp) => {
         for (const key in resp.val())
           this.potentialHoldings.push(resp.val()[key])
-        // console.log(this.potentialHoldings)
         this.triggerGetPotentialHoldings();
       });
     });
@@ -34,7 +33,6 @@ export class PotentialStocksComponent implements OnInit {
       this.results = []
       for (var ticker of this.potentialHoldings) {
         this.api.getPotentialHoldings(ticker).subscribe((quote: any) => {
-          // console.log(quote)
           let ticker: Ticker = new Ticker();
           ticker.name = quote.symbol;
           ticker.lastPrice = quote.latestPrice.toFixed(2);
@@ -102,8 +100,6 @@ export class PotentialStocksComponent implements OnInit {
 
   resetAddToPotentialHoldingsModal() {
     this.ticker = '';
-    // this.type = '';
-    // this.numOfSharesContracts = '';
   }
 
 }
