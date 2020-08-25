@@ -18,11 +18,10 @@ export class InterceptorService implements HttpInterceptor {
 
   intercept(httpRequest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(httpRequest).pipe(catchError((error: HttpErrorResponse) => {
-      console.log(httpRequest)
       let url = httpRequest.urlWithParams;
       let urlSplit = url.split('/')
       let ticker = urlSplit[5];
-
+      
       let errorMessage = `Error Code: ${error.status},  Message: ${error.message}`;
 
       if (error.status == 404) {

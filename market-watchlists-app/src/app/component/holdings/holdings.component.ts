@@ -34,7 +34,6 @@ export class HoldingsComponent implements OnInit {
       this.results = []
       for (var ticker of this.holdings) {
         this.api.getHoldings(ticker).subscribe((quote: any) => {
-          console.log(quote)
           let ticker: Ticker = new Ticker();
           ticker.name = quote.symbol;
           ticker.lastPrice = quote.latestPrice.toFixed(2);
