@@ -23,6 +23,9 @@ export class TransferService {
   getRandomSubject: Subject<Boolean> = new Subject<Boolean>();
   getRandomObservable$: Observable<Boolean> = this.getRandomSubject.asObservable();
 
+  cancelRefreshSubject: Subject<Boolean> = new Subject<Boolean>();
+  cancelRefreshObservable$: Observable<Boolean> = this.cancelRefreshSubject.asObservable();
+
 
   constructor() { }
 
@@ -50,4 +53,8 @@ export class TransferService {
     this.refreshRandomClickedSubject.next(trigger);
   }
 
-}
+  stopRefresh(trigger: boolean) {
+    this.cancelRefreshSubject.next(trigger);
+  }
+
+}   

@@ -15,7 +15,7 @@ export class DialogComponent implements OnInit {
   }
 
   setInput(input: string) {
-    this.input = input;
+    this.input = input.toUpperCase();
   }
 
   close() {
