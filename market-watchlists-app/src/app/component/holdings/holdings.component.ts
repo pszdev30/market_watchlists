@@ -7,6 +7,9 @@ import { MatDialog } from "@angular/material/dialog";
 import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+const message: string = 'You didn\'t enter a ticker!';
+const action: string = 'Close';
+
 @Component({
   selector: 'app-holdings',
   templateUrl: './holdings.component.html',
@@ -32,7 +35,7 @@ export class HoldingsComponent implements OnInit {
 
 
     this.transferService.getHoldingsObservable$.subscribe(() => {
-      this.results = []
+      this.results = [];
       for (var ticker of this.holdings) {
         this.api.getHoldings(ticker).subscribe((quote: any) => {
           let ticker: Ticker = new Ticker();
@@ -41,7 +44,7 @@ export class HoldingsComponent implements OnInit {
           ticker.change = quote.change.toFixed(2);
           ticker.percentChange = quote.changePercent.toFixed(2);
 
-          if (ticker.change > 0) ticker.positive = true
+          if (ticker.change > 0) ticker.positive = true;
           else ticker.positive = false;
 
           this.results.push(ticker)
@@ -58,8 +61,7 @@ export class HoldingsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result != undefined)
         this.addToHoldings(result);
-      else
-        return;
+      return;
     });
   }
 
@@ -102,7 +104,7 @@ export class HoldingsComponent implements OnInit {
     this.ticker = '';
   }
 
-  
+
   reset() {
     this.holdings = [];
     this.results = [];

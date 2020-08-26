@@ -57,8 +57,7 @@ export class RandomComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result != undefined)
         this.addToRandom(result);
-      else
-        return;
+      return;
     });
   }
 
@@ -107,7 +106,7 @@ export class RandomComponent implements OnInit {
     this.results = [];
   }
 
-  
+
   resetAddToHoldingsModal() {
     this.ticker = '';
   }

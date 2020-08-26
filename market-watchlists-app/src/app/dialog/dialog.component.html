@@ -11,5 +11,5 @@
 
 <mat-dialog-actions>
     <button mat-button (click)="close()">Close</button>
-    <button mat-raised-button (click)="add()">Add</button>
+    <button mat-raised-button (click)="add()" [disabled]="input == undefined">Add</button>
 </mat-dialog-actions>

@@ -54,8 +54,7 @@ export class PotentialStocksComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result != undefined)
         this.addToPotentialHoldings(result);
-      else
-        return;
+      return;
     });
   }
 
@@ -98,7 +97,7 @@ export class PotentialStocksComponent implements OnInit {
     this.ticker = '';
   }
 
-  
+
   reset() {
     this.potentialHoldings = []
     this.results = [];
