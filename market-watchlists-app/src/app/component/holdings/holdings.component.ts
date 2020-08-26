@@ -94,7 +94,7 @@ export class HoldingsComponent implements OnInit {
   }
 
   reset() {
-    this.holdings = []
+    this.holdings = [];
     this.results = [];
   }
 

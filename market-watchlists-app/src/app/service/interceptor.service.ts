@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { retry, catchError, first } from 'rxjs/operators';
+import { retry, catchError } from 'rxjs/operators';
 import { TransferService } from './transfer.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 
@@ -21,14 +21,16 @@ export class InterceptorService implements HttpInterceptor {
       let url = httpRequest.urlWithParams;
       let urlSplit = url.split('/')
       let ticker = urlSplit[5];
-      
+
       let errorMessage = `Error Code: ${error.status},  Message: ${error.message}`;
 
       if (error.status == 404) {
         this.snackBar.open(serverError, action, {
           duration: 3500,
         });
-        this.db.database.ref('/Holdings').child(ticker).remove()
+        this.db.database.ref('/Holdings').child(ticker).remove();
+        this.db.database.ref('/Potential Holdings').child(ticker).remove();
+        this.db.database.ref('/Random').child(ticker).remove();
         this.transfer.stopRefresh(true);
         return throwError(errorMessage)
       }
