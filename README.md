@@ -21,7 +21,8 @@ As a Robinhood user (lol), I grew tired of the single watchlist the app supports
 - Flow of the backend: **Scrape** &#8594; **Parse** &#8594; **Send to frontend**
 
 
-## Code Snippet
+## Code Snippets
+Getting tickers from Firebase and parsing the API call
 ![snippet](https://github.com/pszdev30/market_watchlists/blob/master/code%20snippet.png)
 
 ## What I'm working on now
