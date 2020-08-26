@@ -10,7 +10,7 @@ As a Robinhood user (lol), I grew tired of the single watchlist the app supports
 
 
 ## How it works 
-- App is deployed on Firebase & uses their Realtime Database to store the tickers for each watchlist
+- App is deployed w/ Firebase hosting & uses Firebase Realtime DB to store the tickers for each watchlist
 
 - The Angular frontend calls the [IEX Cloud API](https://iexcloud.io/) (it's the only free one I could find that didn't have an easily reachable limit on the number & frequency of calls I can make) to receive stock data for each ticker
 
