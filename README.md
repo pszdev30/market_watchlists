@@ -23,7 +23,7 @@ As a Robinhood user (lol), I grew tired of the single watchlist the app supports
 
 ## Code Snippets
 Getting tickers from Firebase and parsing the API call
-![snippet](https://screenrec.com/share/yKqBZbNG5A)
+![snippet](https://github.com/pszdev30/market_watchlists/blob/master/snippet.png)
 
 ## What I'm working on now
 - Editable column names
