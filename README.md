@@ -1,14 +1,37 @@
 # Stock Market Watchlists
 
-## What is it?
-
-
+### Created streamlined watchlists app to track performance of current holdings, potential investments, & prominent stocks in a specific industry   
+<br>
 
 ## Installation
-None! Just head over to https://stock-market-watchlists.web.app and you're good to go
+Just head over to https://stock-market-watchlists.web.app 
 
-## Features
+## Why I made it
+As a Robinhood user (lol), I grew tired of the single watchlist the app supports and didn't want to download a separate app just to make multiple watchlists. My list had grown to well over 50 stocks, and it was basically impossible to track them efficiently
 
-## What's in the works
+
+## How it works 
+- App is deployed on Firebase & uses their Realtime Database to store the tickers for each watchlist
+
+- The Angular frontend calls the [IEX Cloud API](https://iexcloud.io/) (it's the only free one I could find that didn't have an easily reachable limit on the number & frequency of calls I can make) to receive stock data for each ticker
+
+- Created a scraper using Python + Selenium to parse information on the major indexes from Yahoo Finance and display in the frontend
+
+- Flow of the frontend: Firebase &#8594; IEX Cloud &#8594; Intercept response + do some handling &#8594; Parse &#8594; Display 
+
+- Flow of the backend: Scrape &#8594; Parse &#8594; Send to frontend
+
+## Code Snippet
+![snippet](https://github.com/pszdev30/market_watchlists/blob/master/code%20snippet.png)
+
+## What I'm working on now
+- Editable column names
+
+- Live reloading (I've failed on this a couple times but hopefully I'll get it soon)
+
+- Implement the scraper in frontend navigation bar to get a better idea of overall market performance 
 
 ## Future
+- Allow for input of details regarding my positions in the companies & expand the card 
+
+
