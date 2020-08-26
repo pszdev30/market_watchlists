@@ -21,6 +21,7 @@ As a Robinhood user (lol), I grew tired of the single watchlist the app supports
 
 - Flow of the backend: Scrape &#8594; Parse &#8594; Send to frontend
 
+<<<<<<< HEAD
 ## Code Snippet
 ![snippet](https://github.com/pszdev30/market_watchlists/blob/master/code%20snippet.png)
 
@@ -30,8 +31,25 @@ As a Robinhood user (lol), I grew tired of the single watchlist the app supports
 - Live reloading (I've failed on this a couple times but hopefully I'll get it soon)
 
 - Implement the scraper in frontend navigation bar to get a better idea of overall market performance 
+||||||| 1c53592
+## What's in the works
+=======
+## What I'm working on now
+Editable column names
+
+Live reloading (I've failed on this a couple times but hopefully it'll happen soon)
+
+Add indexes across the navigation bar to get a better idea of overall market performance
+>>>>>>> 2ff4c272b89057cafef6348a8ade5e5ffb7b7ebd
 
 ## Future
+<<<<<<< HEAD
 - Allow for input of details regarding my positions in the companies & expand the card 
 
 
+||||||| 1c53592
+=======
+
+## Suggestions
+Have suggestions to improve the app? 
+>>>>>>> 2ff4c272b89057cafef6348a8ade5e5ffb7b7ebd
