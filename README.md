@@ -1,6 +1,6 @@
 # Stock Market Watchlists
 
-#### Created streamlined watchlists app to track performance of current holdings, potential investments, & prominent stocks in a specific industry   
+Created streamlined watchlists app to track performance of current holdings, potential investments, & prominent stocks in a specific industry   
 
 ## Installation
 Just head over to https://stock-market-watchlists.web.app 
