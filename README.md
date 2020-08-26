@@ -1,7 +1,6 @@
 # Stock Market Watchlists
 
-### Created streamlined watchlists app to track performance of current holdings, potential investments, & prominent stocks in a specific industry   
-<br>
+#### Created streamlined watchlists app to track performance of current holdings, potential investments, & prominent stocks in a specific industry   
 
 ## Installation
 Just head over to https://stock-market-watchlists.web.app 
@@ -17,11 +16,11 @@ As a Robinhood user (lol), I grew tired of the single watchlist the app supports
 
 - Created a scraper using Python + Selenium to parse information on the major indexes from Yahoo Finance and display in the frontend
 
-- Flow of the frontend: Firebase &#8594; IEX Cloud &#8594; Intercept response + do some handling &#8594; Parse &#8594; Display 
+- Flow of the frontend: **Firebase** &#8594; **IEX Cloud** &#8594; **Intercept response + do some handling** &#8594; **Parse** &#8594; **Display** 
 
-- Flow of the backend: Scrape &#8594; Parse &#8594; Send to frontend
+- Flow of the backend: **Scrape** &#8594; **Parse** &#8594; **Send to frontend**
 
-<<<<<<< HEAD
+
 ## Code Snippet
 ![snippet](https://github.com/pszdev30/market_watchlists/blob/master/code%20snippet.png)
 
@@ -31,25 +30,8 @@ As a Robinhood user (lol), I grew tired of the single watchlist the app supports
 - Live reloading (I've failed on this a couple times but hopefully I'll get it soon)
 
 - Implement the scraper in frontend navigation bar to get a better idea of overall market performance 
-||||||| 1c53592
-## What's in the works
-=======
-## What I'm working on now
-Editable column names
 
-Live reloading (I've failed on this a couple times but hopefully it'll happen soon)
-
-Add indexes across the navigation bar to get a better idea of overall market performance
->>>>>>> 2ff4c272b89057cafef6348a8ade5e5ffb7b7ebd
 
 ## Future
-<<<<<<< HEAD
 - Allow for input of details regarding my positions in the companies & expand the card 
 
-
-||||||| 1c53592
-=======
-
-## Suggestions
-Have suggestions to improve the app? 
->>>>>>> 2ff4c272b89057cafef6348a8ade5e5ffb7b7ebd
