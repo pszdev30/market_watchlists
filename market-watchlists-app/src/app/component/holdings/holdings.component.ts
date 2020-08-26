@@ -39,6 +39,7 @@ export class HoldingsComponent implements OnInit {
       for (var ticker of this.holdings) {
         this.api.getHoldings(ticker).subscribe((quote: any) => {
           let ticker: Ticker = new Ticker();
+
           ticker.name = quote.symbol;
           ticker.lastPrice = quote.latestPrice.toFixed(2);
           ticker.change = quote.change.toFixed(2);
@@ -47,7 +48,7 @@ export class HoldingsComponent implements OnInit {
           if (ticker.change > 0) ticker.positive = true;
           else ticker.positive = false;
 
-          this.results.push(ticker)
+          this.results.push(ticker);
 
         });
       }

@@ -22,7 +22,6 @@ export class InterceptorService implements HttpInterceptor {
       let url = httpRequest.urlWithParams;
       let urlSplit = url.split('/');
       let ticker = urlSplit[5];
-
       let errorMessage = `Error Code: ${error.status},  Message: ${error.message}`;
 
       if (error.status == 404) {
@@ -38,6 +37,6 @@ export class InterceptorService implements HttpInterceptor {
       }
       this.transfer.stopRefresh(false);
     }));
-
   }
+  
 }
