@@ -43,7 +43,6 @@ Parsing the API response:
       }
     });
 ```
-
 Intercepting ```
  GET ``` request :
 
