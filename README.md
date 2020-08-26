@@ -80,6 +80,6 @@ Intercepting ```
 - Implement the scraper in frontend navigation bar to get a better idea of overall market performance 
 
 
-## Future
+## When I'm done with ^^
 - Allow for input of details regarding my positions in the companies & expand the card 
 
