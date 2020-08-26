@@ -19,6 +19,7 @@ export class HoldingsComponent implements OnInit {
 
   constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService, public dialog: MatDialog, private snackBar: MatSnackBar) { }
 
+
   ngOnInit() {
     this.transferService.refreshHoldingsClickedObservable$.subscribe(() => {
       this.holdings = [];
@@ -50,6 +51,7 @@ export class HoldingsComponent implements OnInit {
     });
   }
 
+
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {});
 
@@ -61,19 +63,23 @@ export class HoldingsComponent implements OnInit {
     });
   }
 
+
   triggerGetHoldings() {
     this.transferService.triggerGetHoldings(true);
   }
+
 
   addToHoldings(ticker: string) {
     this.db.database.ref('/Holdings').child(ticker).set(ticker)
     this.triggerRefresh()
   }
 
+
   removeFromHoldings(ticker: string) {
     this.db.database.ref('/Holdings').child(ticker).remove()
     this.triggerRefresh();
   }
+
 
   removeAllHoldings() {
     for (var holding of this.holdings)
@@ -81,18 +87,22 @@ export class HoldingsComponent implements OnInit {
     this.triggerRefresh();
   }
 
+
   triggerRefresh() {
     this.transferService.triggerHoldingsRefresh(true)
   }
+
 
   setTicker($event: any) {
     this.ticker = $event;
   }
 
+
   resetModal() {
     this.ticker = '';
   }
 
+  
   reset() {
     this.holdings = [];
     this.results = [];

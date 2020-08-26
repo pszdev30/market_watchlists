@@ -64,15 +64,18 @@ export class PotentialStocksComponent implements OnInit {
     this.transferService.triggerGetPotentialHoldings(true);
   }
 
+
   addToPotentialHoldings(ticker: string) {
     this.db.database.ref('/Potential Holdings').child(ticker).set(ticker)
     this.triggerPotentialHoldingsRefresh();
   }
 
+
   removeFromPotentialHoldings(ticker: string) {
     this.db.database.ref('/Potential Holdings').child(ticker).remove()
     this.triggerPotentialHoldingsRefresh();
   }
+
 
   removeAllPotentialHoldings() {
     for (var potentialHolding of this.potentialHoldings)
@@ -80,18 +83,22 @@ export class PotentialStocksComponent implements OnInit {
     this.triggerPotentialHoldingsRefresh();
   }
 
+
   triggerPotentialHoldingsRefresh() {
     this.transferService.triggerPotentialHoldingsRefresh(true)
   }
+
 
   setTicker($event: any) {
     this.ticker = $event;
   }
 
+
   resetModal() {
     this.ticker = '';
   }
 
+  
   reset() {
     this.potentialHoldings = []
     this.results = [];

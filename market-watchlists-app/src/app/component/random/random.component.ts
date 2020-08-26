@@ -19,6 +19,7 @@ export class RandomComponent implements OnInit {
 
   constructor(private api: ApiService, private db: AngularFireDatabase, private transferService: TransferService, public dialog: MatDialog) { }
 
+
   ngOnInit() {
     this.transferService.refreshRandomClickedObservable$.subscribe(() => {
       this.random = []
@@ -49,6 +50,7 @@ export class RandomComponent implements OnInit {
     });
   }
 
+
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {});
 
@@ -60,19 +62,23 @@ export class RandomComponent implements OnInit {
     });
   }
 
+
   triggerGetRandom() {
     this.transferService.triggerGetRandom(true);
   }
+
 
   addToRandom(ticker: string) {
     this.db.database.ref('/Random').child(ticker).set(ticker)
     this.triggerRefresh();
   }
 
+
   removeFromRandom(ticker: string) {
     this.db.database.ref('/Random').child(ticker).remove()
     this.triggerRefresh();
   }
+
 
   removeAllRandom() {
     for (var random of this.random)
@@ -80,23 +86,28 @@ export class RandomComponent implements OnInit {
     this.triggerRefresh();
   }
 
+
   triggerRefresh() {
     this.transferService.triggerRandomRefresh(true)
   }
+
 
   setTicker($event: any) {
     this.ticker = $event;
   }
 
+
   resetModal() {
     this.ticker = '';
   }
+
 
   reset() {
     this.random = []
     this.results = [];
   }
 
+  
   resetAddToHoldingsModal() {
     this.ticker = '';
   }

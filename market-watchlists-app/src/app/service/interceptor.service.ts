@@ -28,6 +28,7 @@ export class InterceptorService implements HttpInterceptor {
         this.snackBar.open(serverError, action, {
           duration: 3500,
         });
+        
         this.db.database.ref('/Holdings').child(ticker).remove();
         this.db.database.ref('/Potential Holdings').child(ticker).remove();
         this.db.database.ref('/Random').child(ticker).remove();
