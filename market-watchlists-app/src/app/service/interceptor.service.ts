@@ -14,12 +14,13 @@ const action: string = 'Close';
 })
 export class InterceptorService implements HttpInterceptor {
 
+
   constructor(private snackBar: MatSnackBar, private transfer: TransferService, private db: AngularFireDatabase) { }
 
   intercept(httpRequest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(httpRequest).pipe(catchError((error: HttpErrorResponse) => {
       let url = httpRequest.urlWithParams;
-      let urlSplit = url.split('/')
+      let urlSplit = url.split('/');
       let ticker = urlSplit[5];
 
       let errorMessage = `Error Code: ${error.status},  Message: ${error.message}`;
@@ -28,12 +29,12 @@ export class InterceptorService implements HttpInterceptor {
         this.snackBar.open(serverError, action, {
           duration: 3500,
         });
-        
+
         this.db.database.ref('/Holdings').child(ticker).remove();
         this.db.database.ref('/Potential Holdings').child(ticker).remove();
         this.db.database.ref('/Random').child(ticker).remove();
         this.transfer.stopRefresh(true);
-        return throwError(errorMessage)
+        return throwError(errorMessage);
       }
       this.transfer.stopRefresh(false);
     }));
