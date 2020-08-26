@@ -62,7 +62,9 @@ Intercepting ```
         this.db.database.ref('/Holdings').child(ticker).remove();
         this.db.database.ref('/Potential Holdings').child(ticker).remove();
         this.db.database.ref('/Random').child(ticker).remove();
+        
         this.transfer.stopRefresh(true);
+        
         return throwError(errorMessage);
       }
       this.transfer.stopRefresh(false);
