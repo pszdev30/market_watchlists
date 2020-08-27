@@ -82,5 +82,5 @@ Intercepting ```
 
 
 ## When I'm done with ^^
-- Allow for input of details regarding my positions in the companies & expand the card 
+- Create a "Google" search page in which I can search for a stock and view its advanced stats, news, analyst recommendations, earnings estimates, etc... 
 
