@@ -2,12 +2,11 @@
 
 Created streamlined watchlists app to track performance of current holdings, potential investments, & prominent stocks in a specific industry   
 
-## Installation
-None! Just head over to https://stock-market-watchlists.web.app 
-
 ## Why I made it
 As a Robinhood user (lol), I grew tired of the single watchlist the app supports and didn't want to download a separate app just to make multiple watchlists. My list had grown to well over 50 stocks, and it was basically impossible to track them efficiently
 
+## Installation
+None! Just head over to https://stock-market-watchlists.web.app 
 
 ## How it works 
 - App is deployed w/ Firebase hosting & uses Firebase Realtime DB to store the tickers for each watchlist
