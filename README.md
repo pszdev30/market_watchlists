@@ -82,5 +82,5 @@ Intercepting ```
 
 
 ## When I'm done with ^^
-- Create a "Google" search page in which I can search for a stock and view its advanced stats, news, analyst recommendations, earnings estimates, etc... 
+- Essentially create a "Google" search page in which I can search for a stock and view its advanced stats, news, analyst recommendations, earnings estimates, etc. in one clean view 
 
