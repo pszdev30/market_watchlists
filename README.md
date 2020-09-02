@@ -2,6 +2,8 @@
 
 Created streamlined watchlists app to track performance of current holdings, potential investments, & prominent stocks in a specific industry   
 
+Working toward making it an all-inclusive platform
+
 ## Why I made it
 As a Robinhood user (lol), I grew tired of the single watchlist the app supports and didn't want to download a separate app just to make multiple watchlists. My list had grown to well over 50 stocks, and it was basically impossible to track them efficiently
 
@@ -74,6 +76,8 @@ Intercepting ```
 
 
 ## What I'm working on now
+- Page for upcoming earnings reports (ran out of API calls for the month :unamused:)
+
 - Editable column names
 
 - Live reloading (I've failed on this a couple times but hopefully I'll get it soon)
