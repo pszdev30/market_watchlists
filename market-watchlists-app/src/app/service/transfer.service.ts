@@ -26,6 +26,9 @@ export class TransferService {
   cancelRefreshSubject: Subject<Boolean> = new Subject<Boolean>();
   cancelRefreshObservable$: Observable<Boolean> = this.cancelRefreshSubject.asObservable();
 
+  earnings: Subject<Boolean> = new Subject<Boolean>();
+  earningsObservable$: Observable<Boolean> = this.earnings.asObservable();
+
 
   constructor() { }
 
@@ -55,6 +58,10 @@ export class TransferService {
 
   stopRefresh(trigger: boolean) {
     this.cancelRefreshSubject.next(trigger);
+  }
+
+  goToEarnings(trigger: boolean) {
+    this.earnings.next(trigger);
   }
 
 }   

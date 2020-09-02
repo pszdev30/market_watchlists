@@ -8,11 +8,30 @@
             <div class="mdl-layout-spacer"></div>
             <!-- Navigation. We hide it in small screens. -->
             <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <a class="mdl-navigation__link" (click)="goToEarnings()">
+                    <!-- Flat button with ripple -->
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: white;">
+                        Upcoming Earnings
+                    </button>
+                </a>
+                <!-- Expandable Textfield -->
+                <form action="#" style="margin-top: 5px;">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                        <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+                            <i class="material-icons">search</i>
+                        </label>
+                        <div class="mdl-textfield__expandable-holder">
+                            <input class="mdl-textfield__input" type="text" id="sample6">
+                            <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+                        </div>
+                    </div>
+                </form>
+
             </nav>
         </div>
     </header>
 
-    <main class="mdl-layout__content">
+    <main class="mdl-layout__content" *ngIf="earnings == false">
         <div class="page-content">
             <!-- Your content goes here -->
             <app-potential-stocks></app-potential-stocks>
@@ -22,4 +41,11 @@
             <app-random></app-random>
         </div>
     </main>
+
+    <main class="mdl-layout__content" *ngIf="earnings == true">
+        <div class="page-content">
+            <app-earnings></app-earnings>
+        </div>
+    </main>
+
 </div>

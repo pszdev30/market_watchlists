@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HoldingsComponent } from './component/holdings/holdings.component';
@@ -21,6 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DialogComponent } from './dialog/dialog.component';
 import { InterceptorService } from './service/interceptor.service';
+import { EarningsComponent } from './component/earnings/earnings.component';
 
 @NgModule({
   declarations: [
@@ -30,10 +31,10 @@ import { InterceptorService } from './service/interceptor.service';
     RandomComponent,
     NavbarComponent,
     DialogComponent,
+    EarningsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -45,6 +46,9 @@ import { InterceptorService } from './service/interceptor.service';
     MatInputModule,
     MatDialogModule,
     MatSnackBarModule,
+    RouterModule.forRoot([
+      { path: '', component: NavbarComponent },
+    ]),
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
     ApiService],
