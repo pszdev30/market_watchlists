@@ -74,6 +74,8 @@ Intercepting ```
 
 
 ## What I'm working on now
+- Page for upcoming earnings reports (ran out of API calls for the month :( )
+
 - Editable column names
 
 - Live reloading (I've failed on this a couple times but hopefully I'll get it soon)
