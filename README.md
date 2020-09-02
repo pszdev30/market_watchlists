@@ -76,7 +76,7 @@ Intercepting ```
 
 
 ## What I'm working on now
-- Page for upcoming earnings reports (ran out of API calls for the month :unamused: )
+- Page for upcoming earnings reports (ran out of API calls for the month :unamused:)
 
 - Editable column names
 
