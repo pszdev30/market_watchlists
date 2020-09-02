@@ -13,7 +13,7 @@ export class EarningsComponent implements OnInit {
   ngOnInit(): void {
     this.api.earnings().subscribe((res) => {
       console.log(res)
-    })
+    });
   }
 
 }

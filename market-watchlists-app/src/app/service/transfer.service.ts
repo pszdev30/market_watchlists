@@ -29,7 +29,6 @@ export class TransferService {
   earnings: Subject<Boolean> = new Subject<Boolean>();
   earningsObservable$: Observable<Boolean> = this.earnings.asObservable();
 
-
   constructor() { }
 
   triggerGetHoldings(trigger: boolean) {

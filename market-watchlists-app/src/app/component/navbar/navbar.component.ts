@@ -20,6 +20,7 @@ export class NavbarComponent implements OnInit {
     });
   }
 
+  
   goToEarnings() {
     this.transfer.goToEarnings(true);
   }

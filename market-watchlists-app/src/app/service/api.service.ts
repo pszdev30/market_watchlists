@@ -24,6 +24,7 @@ export class ApiService {
 
   earnings() {
     return of(4);
+
     return this.http.get(environment.IEX_BASE_URL + 'market/today-earnings?token=' + environment.IEX_API_TOKEN)
   }
 
