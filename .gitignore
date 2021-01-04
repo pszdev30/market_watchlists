@@ -1,2 +1,4 @@
 market-watchlists-app/firebase-debug.log
 market-watchlists-app/debug.log
+__pycache__
+.ipynb_checkpoints
